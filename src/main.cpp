@@ -5,41 +5,45 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
+int func() { return 0; }
+
 // Main tests that every library works!
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), fmt::format("Title{}", 4));
+    sf::RenderWindow window(sf::VideoMode(200, 200), fmt::format("Title{}", 4));
 
-	ImGui::SFML::Init(window);
+    ImGui::SFML::Init(window);
 
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
 
-	nlohmann::json hello;
-	hello["Main"] = 42;
+    nlohmann::json hello;
+    hello["Main"] = 42;
 
-	std::cout << hello;
+    std::cout << hello;
 
-	while (window.isOpen()) {
-		sf::Event event;
-		while (window.pollEvent(event)) {
-			ImGui::SFML::ProcessEvent(event);
-			if (event.type == sf::Event::Closed) window.close();
+    while (window.isOpen()) {
+	    sf::Event event;
+	    while (window.pollEvent(event)) {
+		    ImGui::SFML::ProcessEvent(event);
+		    if (event.type == sf::Event::Closed) {
+			    window.close();
+			}
 		}
 
-		ImGui::SFML::Update(window, sf::Time(sf::seconds(1.f/60.f)));
+	    ImGui::SFML::Update(window, sf::Time(sf::seconds(1.f / 60.f)));
 
-		ImGui::Begin("Window Title");
-		ImGui::Button("HELLO I WORK");
-		ImGui::End();
+	    ImGui::Begin("Window Title");
+	    ImGui::Button("HELLO I WORK");
+	    ImGui::End();
 
-		window.clear();
-		window.draw(shape);
-		ImGui::SFML::Render(window);
-		window.display();
+	    window.clear();
+	    window.draw(shape);
+	    ImGui::SFML::Render(window);
+	    window.display();
 	}
 
-	ImGui::SFML::Shutdown();
+    ImGui::SFML::Shutdown();
 
-	return 0;
+    return 0;
 }
