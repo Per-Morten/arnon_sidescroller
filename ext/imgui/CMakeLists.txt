@@ -1,0 +1,14 @@
+# Custom CMake File for IMGUI - Unofficial
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+
+PROJECT("imgui" VERSION 1.53 DESCRIPTION "CMake Wrapper around ImGui")
+
+ADD_LIBRARY("imgui" STATIC
+    "imgui.cpp"
+    "imgui_draw.cpp"
+    "imgui-SFML.cpp")
+
+MESSAGE("Building ${PROJECT_NAME} version ${PROJECT_VERSION}")
+
+TARGET_INCLUDE_DIRECTORIES("imgui" PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
+SET_TARGET_PROPERTIES("imgui" PROPERTIES VERSION ${PROJECT_VERSION})
