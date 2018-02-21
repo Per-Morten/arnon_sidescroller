@@ -1,5 +1,10 @@
+# .Gitignore for Arnon Sidescroller
 
-
+# Temporary folders that can be reproduced
 /build/
 /bin/
 
+# SFML - We will have it in different places
+# Linux will find it automatically if it's installed
+# Windows will have to specify
+/ext/SFML/

@@ -1,0 +1,1170 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"enddoc",
+				"\\end{document}                                    \tlatex-document"
+			],
+			[
+				"fs_",
+				"fs_texCoord"
+			],
+			[
+				"out",
+				"outColor"
+			],
+			[
+				"only",
+				"onlyUniqueValues\tfunction"
+			],
+			[
+				"hlin",
+				"\\hlinefill                                        \tlatex-document"
+			],
+			[
+				"endtab",
+				"\\end{table}                                       \tlatex-document"
+			],
+			[
+				"begintabl",
+				"\\begin{table*}[placement]                         \tlatex-document"
+			],
+			[
+				"include",
+				"\\includegraphics[options]{name}                   \tlatex-document"
+			],
+			[
+				"includegra",
+				"\\includegraphics{name}                            \tlatex-document"
+			],
+			[
+				"footno",
+				"\\footnote{text}                                   \tlatex-document"
+			],
+			[
+				"incl",
+				"\\includegraphics{name}                            \tlatex-document"
+			],
+			[
+				"subsub",
+				"\\subsubsection{title}                             \tlatex-document"
+			],
+			[
+				"graphi",
+				"\\includegraphics{name}                            \tlatex-document"
+			],
+			[
+				"subs",
+				"\\subsubsection{title}                             \tlatex-document"
+			],
+			[
+				"sort",
+				"sorted\tfunction"
+			],
+			[
+				"foot",
+				"\\footnote{text}                                   \tlatex-document"
+			],
+			[
+				"useac",
+				"\\usepackage{package}                              \tlatex-document"
+			],
+			[
+				"foo",
+				"\\footnote{text}                                   \tlatex-document"
+			],
+			[
+				"main",
+				"mainLoop\tfunction"
+			],
+			[
+				"setfp",
+				"set_fps\tfunction"
+			],
+			[
+				"beginqu",
+				"\\begin{quote}                                     \tlatex-document"
+			],
+			[
+				"color",
+				"\\textcolor{declared-color}{text}                  \tcolor"
+			],
+			[
+				"sec",
+				"\\section{title}                                   \tlatex-document"
+			],
+			[
+				"new",
+				"\\newpage                                          \tlatex-document"
+			],
+			[
+				"quot",
+				"\\begin{quote}                                     \tlatex-document"
+			],
+			[
+				"usepac",
+				"\\usepackage{package}                              \tlatex-document"
+			],
+			[
+				"dj",
+				"dijkstra_compute\tfunction"
+			],
+			[
+				"consoleload",
+				"console_fill_background\tfunction"
+			],
+			[
+				"max",
+				"maxProfit\tstatement"
+			],
+			[
+				"card",
+				"cardID\tstatement"
+			],
+			[
+				"car",
+				"cardID\tstatement"
+			],
+			[
+				"wri",
+				"write\tfunction"
+			],
+			[
+				"alarm",
+				"alarmUnlocked\tstatement"
+			],
+			[
+				"setsty",
+				"setStyleSheet\tmodule"
+			],
+			[
+				"setSty",
+				"setStyleSheet\tmodule"
+			],
+			[
+				"setfo",
+				"setFont\tmodule"
+			],
+			[
+				"setwin",
+				"setWindowTitle\tmodule"
+			],
+			[
+				"exec",
+				"exec_\tmodule"
+			],
+			[
+				"clic",
+				"clicked\tfunction"
+			],
+			[
+				"QCons",
+				"QConsoleOutputWidget\tclass"
+			],
+			[
+				"QCon",
+				"QConsoleOutputWidget\tmodule"
+			],
+			[
+				"curr",
+				"currentTime\tstatement"
+			],
+			[
+				"last",
+				"lastHour\tstatement"
+			],
+			[
+				"cur",
+				"currentTime\tstatement"
+			],
+			[
+				"cu",
+				"currentTime\tstatement"
+			],
+			[
+				"pyqt",
+				"pyqtSlot\tfunction"
+			],
+			[
+				"QWid",
+				"QWidget\tclass"
+			],
+			[
+				"FilePa",
+				"FilePathInput\tstatement"
+			],
+			[
+				"read",
+				"readline"
+			],
+			[
+				"conso",
+				"consoleStyle\tstatement"
+			],
+			[
+				"rece",
+				"receivedData\tstatement"
+			],
+			[
+				"get",
+				"get_nowait\tfunction"
+			],
+			[
+				"__add",
+				"__addMessageToQueue"
+			],
+			[
+				"mess",
+				"messageQueue\tstatement"
+			],
+			[
+				"print",
+				"printToConsole\tfunction"
+			],
+			[
+				"mesa",
+				"messageQueue\tstatement"
+			],
+			[
+				"message",
+				"messageQueue\tstatement"
+			],
+			[
+				"__pro",
+				"__printLock\tstatement"
+			],
+			[
+				"set",
+				"setMinimumWidth\tfunction"
+			],
+			[
+				"QFont",
+				"QFontDatabase\tclass"
+			],
+			[
+				"scroll",
+				"scrollContentsBy\tfunction"
+			],
+			[
+				"prin",
+				"printToConsole\tfunction"
+			],
+			[
+				"pyQt",
+				"pyqtSignal\tclass"
+			],
+			[
+				"__proce",
+				"__processThreads\tstatement"
+			],
+			[
+				"app",
+				"append\tfunction"
+			],
+			[
+				"exc",
+				"exec_\tfunction"
+			],
+			[
+				"QW",
+				"QWidget\tclass"
+			],
+			[
+				"true",
+				"True\tkeyword"
+			],
+			[
+				"__Pro",
+				"__ProgressBar\tstatement"
+			],
+			[
+				"setWind",
+				"setWindowTitle\tfunction"
+			],
+			[
+				"add",
+				"addLayout\tfunction"
+			],
+			[
+				"QProg",
+				"QProgressDialog\tclass"
+			],
+			[
+				"L",
+				"LabelledPromptWindow\tclass"
+			],
+			[
+				"ec",
+				"exec_\tfunction"
+			],
+			[
+				"ex",
+				"exec_\tfunction"
+			],
+			[
+				"QDial",
+				"QDialog\tclass"
+			],
+			[
+				"close",
+				"close\tfunction"
+			],
+			[
+				"Conf",
+				"ConfirmButton\tstatement"
+			],
+			[
+				"Q",
+				"QWidget"
+			],
+			[
+				"FPI",
+				"FilePathInputWindow\tclass"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"AB",
+				"A_BOLD\tinstance"
+			],
+			[
+				"d",
+				"direction"
+			],
+			[
+				"adj",
+				"adjacentTiles\tstatement"
+			],
+			[
+				"aj",
+				"adjacentTiles"
+			],
+			[
+				"ap",
+				"approachedTile"
+			],
+			[
+				"Get",
+				"GetAdjacent\tfunction"
+			],
+			[
+				"c",
+				"cameFrom"
+			],
+			[
+				"Br",
+				"PathWithBreadthSearch"
+			],
+			[
+				"path",
+				"pathDict"
+			],
+			[
+				"vi",
+				"visitedTiles"
+			],
+			[
+				"Ge",
+				"GetTile"
+			],
+			[
+				"p",
+				"pop\tfunction"
+			],
+			[
+				"elem",
+				"elem\tparam"
+			],
+			[
+				"colo",
+				"color_pair\tfunction"
+			],
+			[
+				"dir",
+				"direction\tparam"
+			],
+			[
+				"Bin",
+				"BindEvent\tfunction"
+			],
+			[
+				"map",
+				"mapToInitialize"
+			],
+			[
+				"Key",
+				"KeyboardEvent"
+			],
+			[
+				"Tra",
+				"tracks\tstatement"
+			],
+			[
+				"Coun",
+				"Countrysongs"
+			],
+			[
+				"Pla",
+				"Playlist"
+			],
+			[
+				"NewC",
+				"NewCursesApp\tSnippet_NewCursesApp"
+			],
+			[
+				"New",
+				"NewCursesApp\tSnippet_NewCursesApp"
+			],
+			[
+				"tit",
+				"title_case"
+			],
+			[
+				"C",
+				"Count"
+			],
+			[
+				"molar",
+				"molarMassList"
+			],
+			[
+				"eleme",
+				"elementList"
+			],
+			[
+				"Cre",
+				"CreateElementsFromLists"
+			],
+			[
+				"Ele",
+				"ElementToMolar"
+			],
+			[
+				"Last",
+				"LastIssuedCommand"
+			],
+			[
+				"Control",
+				"ControlState"
+			],
+			[
+				"Attac",
+				"AttackType"
+			],
+			[
+				"Selec",
+				"SelectionPopup"
+			],
+			[
+				"Se",
+				"SelectionPopup"
+			],
+			[
+				"Popup",
+				"PopupSelection"
+			],
+			[
+				"slection",
+				"selectionPopup"
+			],
+			[
+				"Confi",
+				"ConfirmEngagement"
+			],
+			[
+				"Grap",
+				"GraphicColor\t(JJWorld.py)"
+			],
+			[
+				"appe",
+				"AppendCreature\tfunction"
+			],
+			[
+				"Graph",
+				"GraphicAttributes"
+			],
+			[
+				"Creat",
+				"Creatures\t(JJWorld.py)"
+			],
+			[
+				"Pop",
+				"PopupConfirm\t(JudenJager.py)"
+			],
+			[
+				"Valida",
+				"ValidateLocation"
+			],
+			[
+				"GmaeO",
+				"GameObject"
+			],
+			[
+				"Game",
+				"GameObject"
+			],
+			[
+				"Crea",
+				"Creatures"
+			],
+			[
+				"Wor",
+				"World\tstatement"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 235,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/Python3SeparateWindow.sublime-build",
+					""
+				]
+			],
+			[
+				"Anaconda Python Builder",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					""
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Traditional"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - PdfLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - XeLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Basic Builder - LuaLaTeX"
+				],
+				[
+					"Packages/LaTeXTools/LaTeX.sublime-build",
+					"Script Builder"
+				]
+			],
+			[
+				"Packages/LaTeXTools/LaTeX.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				],
+				[
+					"Packages/User/Python3SeparateWindow.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "ssCM",
+		"selected_items":
+		[
+			[
+				"ssCM",
+				"Set Syntax: CMake"
+			],
+			[
+				"sscma",
+				"Set Syntax: CMake"
+			],
+			[
+				"ssp",
+				"Set Syntax: Python"
+			],
+			[
+				"ssjson",
+				"Set Syntax: JSON"
+			],
+			[
+				"list ",
+				"Package Control: List Packages"
+			],
+			[
+				"pep",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"pep8",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"list pack",
+				"Package Control: List Packages"
+			],
+			[
+				"brow",
+				"Preferences: Browse Packages"
+			],
+			[
+				"Snippet: latex",
+				"Snippet: latexSnippet"
+			],
+			[
+				"ssc+",
+				"Set Syntax: C++"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"sco",
+				"Scope Hunter: Toggle Instant Scoper"
+			],
+			[
+				"scotp",
+				"Scope Hunter: Toggle Instant Scoper"
+			],
+			[
+				"latexres",
+				"LaTeXTools: Reset user settings to default"
+			],
+			[
+				"colorsche",
+				"UI: Select Color Scheme"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"sspu",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"sscss",
+				"Set Syntax: CSS"
+			],
+			[
+				"ssjavasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"conf",
+				"Material Theme: Configuration"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"boxy",
+				"Boxy Theme: Activation"
+			],
+			[
+				"act",
+				"Boxy Theme: Activation"
+			],
+			[
+				"box",
+				"Boxy Theme: Configuration"
+			],
+			[
+				"config",
+				"Boxy Theme: Configuration"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ssc++",
+				"Set Syntax: C++"
+			],
+			[
+				"remove pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"lorm",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"instap",
+				"Package Control: Install Package"
+			],
+			[
+				"remove pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"removepac",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 496.0
+	},
+	"console":
+	{
+		"height": 487.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/Project Files/ArnonSideScroller",
+		"/E/Project Files/ArnonSideScroller/ext"
+	],
+	"file_history":
+	[
+		"/E/Project Files/ArnonSideScroller/cmake_modules/FindSFML.cmake",
+		"/E/Project Files/ArnonSideScroller/CMakeLists.txt",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/bin/res/tetrominos.txt",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/report/Report.tex",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/.gitignore",
+		"/C/Users/Carl/Desktop/TMP/Jent.tex",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/tetris/CMakeLists.txt",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/tetris/src/tetrisWorld.cpp",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/tetris/include/tetrisWorld.h",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/CMakeLists.txt",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Report/Report.tex",
+		"/E/Project Files/Visual Studio/GL_Rendering/.gitignore",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/cmake_modules/FindSFML.cmake",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_02/tetris/src/main.cpp",
+		"/E/Project Files/Visual Studio/GL_Rendering/CMakeLists.txt",
+		"/E/Project Files/Visual Studio/GL_Rendering/bin/frag.fs",
+		"/E/Project Files/Visual Studio/GL_Rendering/bin/vertex.vs",
+		"/E/Project Files/ArnonSideScroller/README.md",
+		"/E/Project Files/ArnonSideScroller/overview.md",
+		"/C/Users/Carl/AppData/Roaming/Trine1/options.txt",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Python/problem03_mfr.py",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Python/problem01_mfr.py",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Python/problem02_mfr.py",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Python/problem01.py",
+		"/C/Users/Carl/AppData/Local/Sublime Text 3/Cache/LaTeXTools/internal/preview_math/97b24a3ba91a0d08bc1bcfbf129a01b0.png.err",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/SublimeProject.sublime-project",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/.gitignore",
+		"/D/Google Drive/Programmer/Games/Descendant/Readme.md",
+		"/C/Users/Carl/Desktop/so.py",
+		"/D/Google Drive/Programmer/Games/Descendant/Descendant/config.json",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Python/problem02.py",
+		"/C/Software/REXPaint/images/Koal_UI_Design.xp",
+		"/D/Google Drive/Programmer/Games/Descendant/Dependencies/BearLibTerminal/media/Runic.png",
+		"/D/Google Drive/Programmer/Games/Descendant/Dependencies/BearLibTerminal/media/fontawesome-codepage.txt",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Report/C++Feedback.tex",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Python/probability.py",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/HandinModule_01/Python/sorting.py",
+		"/C/C++/imgui-1.50/imgui-SFML.cpp",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/Latex_Test/BasicReport.tex",
+		"/D/Google Drive/Programmer/Games/DungeonLife/Warden.py",
+		"/D/Google Drive/Programmer/Games/Descendant/.gitignore",
+		"/D/Google Drive/Programmer/Games/DungeonLife/arial8x8.png",
+		"/C/Users/Carl/Downloads/libtcod-msvs-x64/terminal.png",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/Latex_Test/SublimeGuide.tex",
+		"/C/Users/Carl/Downloads/libtcod-msvs-x64/WHERE-ARE-THE-PREBUILT-FILES.txt",
+		"/C/Users/Carl/Desktop/20171127-libtcod-1.6.4/build/scons/README.md",
+		"/C/Users/Carl/Desktop/20171127-libtcod-1.6.4/README.md",
+		"/C/Users/Carl/Desktop/libtcod-msvs-x64/libtcod.cfg",
+		"/C/Users/Carl/Desktop/libtcod-msvs-x64/README.md",
+		"/C/Users/Carl/Desktop/libtcod-msvs-x64/build/README.txt",
+		"/C/Users/Carl/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Carl/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/Latex_Test/Choose.cpp",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/Latex_Test/Permutation.cpp",
+		"/D/Google Drive/Dokumenter/NTNU/02 - MatteForProgrammering/Latex_Test/main.cpp",
+		"/C/Users/Carl/AppData/Roaming/Sublime Text 3/Packages/User/LaTeXTools.sublime-settings",
+		"/C/Users/Carl/AppData/Roaming/Sublime Text 3/Packages/User/latexSnippet.sublime-snippet",
+		"/D/Google Drive/Programmer/NTNU/GLFW_Testing/GLFW_Testing/res/basic.fs",
+		"/D/Google Drive/Programmer/NTNU/GLFW_Testing/GLFW_Testing/res/basic.vs",
+		"/E/Project Files/Visual Studio/Koala_RPG/Dependencies/libtcod/WHERE-ARE-THE-PREBUILT-FILES.txt",
+		"/C/Users/Carl/Desktop/libtcod-msvs-x64/data/namegen/jice_norse.cfg",
+		"/C/Users/Carl/Desktop/libtcod-msvs-x64/data/namegen/README.txt",
+		"/D/Google Drive/Programmer/NTNU/C++Primer/Chapter16/number.txt",
+		"/C/Software/Dorico/keycommands_en.json",
+		"/C/Users/Carl/Desktop/Referat.txt",
+		"/D/Google Drive/Programmer/Games/KoalChoices/KoalChoices.py",
+		"/C/Users/Carl/Desktop/x64_Release/imgui.ini",
+		"/C/Users/Carl/Desktop/x64_Release/gameLog.txt",
+		"/D/Google Drive/Programmer/Games/KoalChoices/KaprekarNumber.py",
+		"/D/Google Drive/Programmer/Games/TDL_Explorer/explorer.py",
+		"/C/Users/Carl/AppData/Local/Temp/7zO0F795AB1/README.txt",
+		"/D/Google Drive/Programmer/Games/TDL_Explorer/config.py",
+		"/D/Google Drive/Programmer/Games/TDL_Explorer/utility.py",
+		"/D/Google Drive/Programmer/Games/TDL_Explorer/__init__.py",
+		"/D/Google Drive/Programmer/Games/TDL_Explorer/Config.py",
+		"/C/Users/Carl/AppData/Roaming/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/C/C++/SDL/README.txt",
+		"/C/C++/SDL/COPYING.txt",
+		"/C/C++/SDL/WhatsNew.txt",
+		"/C/C++/SDL/README-SDL.txt",
+		"/D/Google Drive/Programmer/Games/TDL_Explorer/Explorer.py",
+		"/C/C++/SDL/BUGS.txt",
+		"/D/Google Drive/Programmer/Utility/KnowItJulekalender_2.py",
+		"/C/Software/REXPaint/REXPaint-README.txt",
+		"/D/Games/Jamal/res/config/resources.json",
+		"/D/Google Drive/Programmer/NTNU/C++Primer/Chapter16/AsciiTable.txt",
+		"/C/Users/Carl/Desktop/ProsjektorLandskap.txt",
+		"/C/Users/Carl/Desktop/Assignment04_Hell/VIDEO LINK.txt",
+		"/D/Google Drive/Dokumenter/NTNU/GameDesign/Hell_UE4/.gitignore",
+		"/D/Documents/Allegorithmic/Substance Painter/shelf/alphas/README.txt",
+		"/C/Users/Carl/Downloads/RIP/Crack/ReadMe.txt",
+		"/C/Users/Carl/Downloads/ZBR/install.txt",
+		"/E/Project Files/Visual Studio/GravityPong/GravityPong/res/sha/ball.frag",
+		"/E/Project Files/Visual Studio/GravityPong/GravityPong/res/sha/paddle.frag",
+		"/D/Documents/Unreal Projects/Clatterclang/Source/Clatterclang.Target.cs",
+		"/D/Documents/Unreal Projects/Clatterclang/Source/ClatterclangEditor.Target.cs",
+		"/D/Documents/Unreal Projects/Clatterclang/Source/Hell_UE4Editor.Target.cs",
+		"/D/Documents/Unreal Projects/Clatterclang/Source/Hell_UE4.Target.cs",
+		"/D/Google Drive/Dokumenter/NTNU/GameDesign/GameDesignAssignment/GameDesignAssignment/res/levels/testLevel.json",
+		"/C/C++/glew210/LICENSE.txt",
+		"/C/C++/Json/LicensePage.txt",
+		"/E/Project Files/Visual Studio/NoseClicker/NoseClicker/res/config/resources.json",
+		"/E/Project Files/Visual Studio/GravityPong/GravityPong/res/sha/ball.vert",
+		"/C/Users/Carl/Desktop/test.py",
+		"/E/Project Files/Visual Studio/GLFW_EngineTut/Core/src/shaders/basic.frag",
+		"/E/Project Files/Visual Studio/GLFW_EngineTut/Core/src/shaders/basic.vert",
+		"/E/Project Files/Visual Studio/NoseClicker/.gitignore",
+		"/D/Google Drive/Dokumenter/NTNU/GameDesign/Assignment_02/Prototyping/pirate.py",
+		"/C/Users/Carl/Desktop/AFFINITY.DESIGNER.V1.5.3-XFORCE/Crack/install.txt",
+		"/D/Google Drive/Dokumenter/NTNU/GameDesign/Assignment_02/Prototyping/pvpCards.txt",
+		"/C/C++/imgui-1.50/imconfig.h",
+		"/D/Google Drive/Dokumenter/NTNU/GameDesign/Assignment_02/Prototyping/pirateCombinations.txt",
+		"/C/C++/glew210/bin/Release/x64/visualinfo.txt",
+		"/C/C++/glew210/bin/Release/x64/glewinfo.txt",
+		"/C/Users/Carl/Downloads/sb7code-master/build/!RUN CMAKE FROM HERE.txt",
+		"/E/Project Files/Visual Studio/GLFW_EngineTut/.gitignore",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/source/QAlarmLockWidget.py",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/README.md",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/source/QLiveClockWidget.py",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/source/QConsoleInputWidget.py",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/source/QConsoleOutputWidget.py",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/resources/styles/consoleStyle.css",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/source/QLabelledPromptDialog.py",
+		"/D/Google Drive/Programmer/Utility/ProjectGeneration/QtGeneration.pyw",
+		"/D/Google Drive/Programmer/Utility/ProjectGeneration/MakePythonModuleFolders.py",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/Readme.md",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/source/Resources.py",
+		"/D/Google Drive/Programmer/Personal_Modules/PyQt5_CWidgets/source/QProgressTaskDialog.py"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 193.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bin",
+			",",
+			"//",
+			"Tetromino",
+			"texture",
+			",",
+			"T",
+			"permute",
+			"distanceFromCenter",
+			"distFromMouse",
+			"onlyUniqueValues",
+			"onlyUniqueCardValues",
+			"onlyUniqueValues",
+			"table",
+			"}.\n",
+			"a",
+			"&&",
+			"fairly",
+			"only",
+			"cos",
+			"cos(",
+			"\\begin{figure}",
+			"includegraphics",
+			"unneccesary",
+			"quote",
+			"x",
+			"position",
+			"player",
+			"inKey"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 235,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								235,
+								235
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Materialize/Langs/Git.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 70.0
+	},
+	"input":
+	{
+		"height": 69.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 258.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.latextools":
+	{
+		"height": 168.0
+	},
+	"output.scopehunter.results":
+	{
+		"height": 168.0
+	},
+	"pinned_build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"project": "arnon_sublime.sublime-project",
+	"replace":
+	{
+		"height": 78.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"c_ch",
+				"C_Character.py"
+			],
+			[
+				"item",
+				"C_ItemMaterial.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 274.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
