@@ -61,11 +61,11 @@
 
 ## Technology
 * Libraries
-    * C++17 (Features suported by MSVC)
-    * SFML
+    * C++17 (Features suported by MSVC - MSVC is now fully conformant)
+    * GLFW and OpenGL
     * [FMT - Formatting / Logging](https://github.com/fmtlib/fmt)
     * [Dear ImGui](https://github.com/ocornut/imgui)
-        * [SFML Binding](https://github.com/eliasdaler/imgui-sfml)
+        * GLFW Usage example is in the example folder
     * [JSON](https://github.com/nlohmann/json)
 * Platforms
     * Linux & Windows
