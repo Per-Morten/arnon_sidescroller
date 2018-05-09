@@ -16,9 +16,9 @@ struct WindowContextHints
     int OpenGLMajor = 4;    // Major OpenGL Version
     int OpenGLMinor = 5;    // Minor OpenGL Version
     int Multisampling = 1;  // Number of samples
-    int Resizeable = 1;     // 1 = Yes, 0 = No
+    int Resizeable = 0;     // 1 = Yes,  0 = No
     int GLProfile = 1;      // 1 = Core, 0 = Compat
-    int fullscreen = 0;     // 1 = Yes, 0 = No
+    int fullscreen = 0;     // 1 = Yes,  0 = No
 };
 
 class Window

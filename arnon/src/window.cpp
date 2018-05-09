@@ -1,5 +1,6 @@
 #include "window.h"
 
+#include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
 
 Window::Window(const glm::ivec2& size, const char* title, const WindowContextHints& hints)
@@ -25,7 +26,10 @@ Window::~Window()
     }
 }
 
-void Window::resize(const glm::ivec2& size) { glfwSetWindowSize(m_window, size.x, size.y); }
+void Window::resize(const glm::ivec2& size)
+{
+    glfwSetWindowSize(m_window, size.x, size.y);
+}
 
 void Window::setFullscreen(const bool flag)
 {
