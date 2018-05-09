@@ -1,4 +1,4 @@
-#include <iostream>
+#include "window.h"
 
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
@@ -6,17 +6,17 @@
 int main()
 {
     glfwInit();
-    
-    auto* window = glfwCreateWindow(1280, 720, "Test Compile", nullptr, nullptr);
-    glfwMakeContextCurrent(window);
+
+    auto window = Window({1280, 720}, "Test");
+    glfwMakeContextCurrent(window.get());
 
     gl::sys::LoadFunctions();
 
-    while (!glfwWindowShouldClose(window))
+    while (!glfwWindowShouldClose(window.get()))
     {
         glfwPollEvents();
         gl::Clear(gl::COLOR_BUFFER_BIT);
-        glfwSwapBuffers(window);
+        glfwSwapBuffers(window.get());
     }
 
     return 0;

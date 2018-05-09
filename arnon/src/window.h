@@ -10,13 +10,15 @@
 
 struct GLFWwindow;
 
+// Contains various options for the OpenGL context creation
 struct WindowContextHints
 {
-    int OpenGLMajor = 4;
-    int OpenGLMinor = 5;
-    int Multisampling = 1;
-    int Resizeable = 1;
-    int GLProfile = 1;
+    int OpenGLMajor = 4;    // Major OpenGL Version
+    int OpenGLMinor = 5;    // Minor OpenGL Version
+    int Multisampling = 1;  // Number of samples
+    int Resizeable = 1;     // 1 = Yes, 0 = No
+    int GLProfile = 1;      // 1 = Core, 0 = Compat
+    int fullscreen = 0;     // 1 = Yes, 0 = No
 };
 
 class Window
@@ -30,6 +32,12 @@ public:
 
     ~Window();
 
+    // Make the GL Context Current
+    void setContextAsCurrent();
+
+    // Get underlying GLFWwindow pointer (Consider implicit conversion?)
+    const GLFWwindow* get() const;
+    GLFWwindow* get();
 };
 
 #endif  // WINDOW_H
