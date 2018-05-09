@@ -32,12 +32,19 @@ public:
 
     ~Window();
 
+    // Resize window
+    void resize(const glm::ivec2& size);
+
+    // Set the fullscreen status of the window
+    void setFullscreen(const bool flag);
+
     // Make the GL Context Current
     void setContextAsCurrent();
 
     // Get underlying GLFWwindow pointer (Consider implicit conversion?)
     const GLFWwindow* get() const;
     GLFWwindow* get();
+
 };
 
 #endif  // WINDOW_H
