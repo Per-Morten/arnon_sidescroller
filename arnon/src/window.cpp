@@ -6,15 +6,18 @@
 Window::Window(const glm::ivec2& size, const char* title, const WindowContextHints& hints)
 {
     // Set Window Hints
-    glfwWindowHint(GLFW_OPENGL_PROFILE,
-                   (hints.GLProfile == 1 ? GLFW_OPENGL_CORE_PROFILE : GLFW_OPENGL_COMPAT_PROFILE));
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, hints.OpenGLMajor);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, hints.OpenGLMinor);
-    glfwWindowHint(GLFW_RESIZABLE, hints.Resizeable);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, (hints.useCoreProfile ? GLFW_OPENGL_CORE_PROFILE : GLFW_OPENGL_COMPAT_PROFILE));
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, hints.openGLMajor);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, hints.openGLMinor);
+    glfwWindowHint(GLFW_SAMPLES, hints.samples);
+    glfwWindowHint(GLFW_DECORATED, hints.decorated);
+    glfwWindowHint(GLFW_FLOATING, hints.alwaysOnTop);
+    glfwWindowHint(GLFW_VISIBLE, hints.visible);
+    glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, hints.debugContext);
+    glfwWindowHint(GLFW_RESIZABLE, hints.resizeable);
 
     // #TODO : Error log if window failed to create!
-    m_window = glfwCreateWindow(size.x, size.y, title, (hints.fullscreen ? glfwGetPrimaryMonitor() : nullptr),
-                                nullptr);
+    m_window = glfwCreateWindow(size.x, size.y, title, (hints.fullscreen ? glfwGetPrimaryMonitor() : nullptr), nullptr);
     setContextAsCurrent();
 }
 

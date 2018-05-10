@@ -13,12 +13,17 @@ struct GLFWwindow;
 // Contains various options for the OpenGL context creation
 struct WindowContextHints
 {
-    int OpenGLMajor = 4;    // Major OpenGL Version
-    int OpenGLMinor = 5;    // Minor OpenGL Version
-    int Multisampling = 1;  // Number of samples
-    int Resizeable = 0;     // 1 = Yes,  0 = No
-    int GLProfile = 1;      // 1 = Core, 0 = Compat
-    int fullscreen = 0;     // 1 = Yes,  0 = No
+    uint8_t openGLMajor    = 4;  // Major OpenGL Version
+    uint8_t openGLMinor    = 5;  // Minor OpenGL Version
+    uint8_t samples        = 1;  // Number of samples
+
+    bool useCoreProfile = true;  // False means compat profile
+    bool decorated      = true;  // Borders etc.
+    bool visible        = true;  
+    bool resizeable     = false;
+    bool fullscreen     = false;
+    bool alwaysOnTop    = false; // Always be on top of other windows
+    bool debugContext   = false; // Enable OpenGL debug context or not
 };
 
 class Window
