@@ -34,6 +34,16 @@ void Window::resize(const glm::ivec2& size)
     glfwSetWindowSize(m_window, size.x, size.y);
 }
 
+void Window::hide() const
+{
+    if(m_window) glfwHideWindow(m_window);
+}
+
+void Window::show() const
+{
+    if (m_window) glfwShowWindow(m_window);
+}
+
 void Window::setFullscreen(const bool flag)
 {
     if (m_window)
