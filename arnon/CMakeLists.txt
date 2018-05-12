@@ -12,9 +12,11 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
 
-               # OpenGL 4.5 Core Profile
+               # OpenGL Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexBuffer.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexBuffer.cpp
                )
 
 # Set include directories
