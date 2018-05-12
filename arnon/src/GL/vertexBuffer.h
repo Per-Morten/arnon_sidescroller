@@ -9,7 +9,7 @@
 
 #include <cstddef>
 
-class VertexBuffer
+class VertexBuffer final
 {
 private:
     // The OpenGL Name
