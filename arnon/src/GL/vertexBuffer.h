@@ -8,12 +8,13 @@
 #define VERTEXBUFFER_H
 
 #include <cstddef>
+#include <cstdint>
 
 class VertexBuffer final
 {
 private:
     // The OpenGL Name
-    unsigned m_name = 0;
+    uint32_t m_name = 0;
 
 public:
     // Construct from known data of size

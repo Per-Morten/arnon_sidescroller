@@ -2,7 +2,7 @@
 
 #include "glCore45.h"
 
-IndexBuffer::IndexBuffer(const void* data, ptrdiff_t dataSize, unsigned count) : m_count(count)
+IndexBuffer::IndexBuffer(const void* data, ptrdiff_t dataSize, uint16_t count) : m_count(count)
 {
     gl::CreateBuffers(1, &m_name);
     gl::NamedBufferStorage(m_name, dataSize, data, 0);

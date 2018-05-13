@@ -8,19 +8,20 @@
 #define INDEXBUFFER_H
 
 #include <cstddef>
+#include <cstdint>
 
 class IndexBuffer final
 {
 private:
     // The OpenGL Name
-    unsigned m_name = 0;
+    uint32_t m_name = 0;
 
     // Number of indices
-    unsigned m_count = 0;
+    uint16_t m_count = 0;
 
 public:
-    // Ctor from data, size and number of indices
-    IndexBuffer(const void* data, ptrdiff_t dataSize, unsigned count);
+    // Ctor from data, size and number of indices    [sized int to hint about index size]
+    IndexBuffer(const void* data, ptrdiff_t dataSize, uint16_t count);
 
     // Move Ctor
     IndexBuffer(IndexBuffer&& other);
