@@ -72,7 +72,7 @@ void IndexBuffer::unbind() const
     gl::BindBuffer(gl::ELEMENT_ARRAY_BUFFER, 0);
 }
 
-void resetBufferDataFromCopy(const IndexBuffer& other)
+void IndexBuffer::resetBufferDataFromCopy(const IndexBuffer& other)
 {
     gl::CreateBuffers(1, &m_name);
 

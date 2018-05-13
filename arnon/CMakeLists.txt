@@ -15,6 +15,8 @@ target_sources(${PROJECT_NAME}
                # OpenGL Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexArray.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexArray.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexBuffer.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexBuffer.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/indexBuffer.h
@@ -23,6 +25,8 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shaderObject.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shaderProgram.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shaderProgram.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/stb_image.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/stb_image.cpp
                )
 
 # Set include directories
