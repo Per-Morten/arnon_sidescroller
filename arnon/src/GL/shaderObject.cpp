@@ -14,6 +14,30 @@ ShaderObject::ShaderObject(std::ifstream& shaderSourceFile, EShaderType type)
     loadFromFile(shaderSourceFile, type);
 }
 
+ShaderObject::ShaderObject(ShaderObject&& other) : m_name(other.m_name)
+{
+    other.m_name = 0;
+}
+
+ShaderObject::ShaderObject& ShaderObject::operator=(ShaderObject&& other)
+{
+    if (&other == this) return *this;
+    
+    // Delete current GlObject
+    gl::DeleteShader(m_name);
+
+    // Steal the other's and reset it
+    m_name = other.m_name;
+    other.m_name = 0;
+
+    return *this;
+}
+
+ShaderObject::~ShaderObject()
+{
+    gl::DeleteShader(m_name);
+}
+
 void ShaderObject::loadFromFile(std::ifstream& file, EShaderType type)
 {
     std::string fileContents{};

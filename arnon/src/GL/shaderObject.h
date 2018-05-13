@@ -18,7 +18,7 @@ enum class EShaderType : uint16_t
     FragmentShader = 0x8B30  // Values taken from glCore45.h
 };
 
-class ShaderObject
+class ShaderObject final
 {
 private:
     // The OpenGL Name
@@ -30,8 +30,14 @@ public:
     ShaderObject(const std::string& shaderSourceCode, EShaderType type);
 
     ShaderObject(std::ifstream& shaderSourceFile, EShaderType type);
+
+    ShaderObject(ShaderObject&& other);
+
+    ShaderObject& operator=(ShaderObject&& other);
     
-    // #TODO : Copy (if makes sense) / Move Ctors
+    // #TODO : Copy Ctors if they make sense / GL has a way to copy shader objects
+    
+    ~ShaderObject();
 
     // Load the shader source from a file
     void loadFromFile(std::ifstream& file, EShaderType type);
