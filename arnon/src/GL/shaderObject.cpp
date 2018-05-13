@@ -1,6 +1,7 @@
 #include "shaderObject.h"
 
 #include <iostream>
+#include <sstream>
 
 #include "glCore45.h"
 
@@ -40,15 +41,12 @@ ShaderObject::~ShaderObject()
 
 void ShaderObject::loadFromFile(std::ifstream& file, EShaderType type)
 {
-    std::string fileContents{};
-    std::string currentLine;
+    // Read file into sstream
+    std::stringstream fileReader;
+    fileReader << file.rdbuf();
 
-    // Load the entire file into fileContents
-    while (std::getline(file, currentLine))
-    {
-        fileContents += currentLine;
-    }
-
+    // Construct string from stream and compile it
+    std::string fileContents{fileReader.str()};
     compile(fileContents.data(), type);
 }
 
