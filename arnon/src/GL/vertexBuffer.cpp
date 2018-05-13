@@ -72,8 +72,11 @@ void VertexBuffer::resetBufferDataFromCopy(const VertexBuffer& source)
     gl::DeleteBuffers(1, &m_name);
     gl::CreateBuffers(1, &m_name);
 
-    int size;
-    gl::GetNamedBufferParameteriv(source.m_name, gl::BUFFER_SIZE, &size);
-    gl::NamedBufferData(m_name, size, nullptr, gl::STATIC_DRAW);
-    gl::CopyNamedBufferSubData(source.m_name, m_name, 0, 0, size);
+    // Get data size
+    int dataSize;
+    gl::GetNamedBufferParameteriv(source.m_name, gl::BUFFER_SIZE, &dataSize);
+
+    // Initialize data store and copy the data across
+    gl::NamedBufferData(m_name, dataSize, nullptr, gl::STATIC_DRAW);
+    gl::CopyNamedBufferSubData(source.m_name, m_name, 0, 0, dataSize);
 }

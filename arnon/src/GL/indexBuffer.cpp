@@ -8,6 +8,24 @@ IndexBuffer::IndexBuffer(const void* data, ptrdiff_t dataSize, uint16_t count) :
     gl::NamedBufferStorage(m_name, dataSize, data, 0);
 }
 
+IndexBuffer::IndexBuffer(const IndexBuffer& other) : m_count(other.m_count)
+{
+    resetBufferDataFromCopy(other);
+}
+
+IndexBuffer& IndexBuffer::operator=(const IndexBuffer& other)
+{
+    if (this == &other) return *this;
+
+    m_count = other.m_count;
+
+    // Copy GL Data
+    gl::DeleteBuffers(1, &m_name);
+    resetBufferDataFromCopy(other);
+
+    return *this;
+}
+
 IndexBuffer::IndexBuffer(IndexBuffer&& other) : m_name(other.m_name), m_count(other.m_count)
 {
     other.m_name = 0;
@@ -52,4 +70,17 @@ void IndexBuffer::bind() const
 void IndexBuffer::unbind() const
 {
     gl::BindBuffer(gl::ELEMENT_ARRAY_BUFFER, 0);
+}
+
+void resetBufferDataFromCopy(const IndexBuffer& other)
+{
+    gl::CreateBuffers(1, &m_name);
+
+    // Get data size
+    int dataSize;
+    gl::GetNamedBufferParameteriv(other.m_name, gl::BUFFER_SIZE, &dataSize);
+
+    // Initialize data store and copy the data across
+    gl::NamedBufferStorage(m_name, dataSize, nullptr, 0);
+    gl::CopyNamedBufferSubData(other.m_name, m_name, 0, 0, dataSize);
 }
