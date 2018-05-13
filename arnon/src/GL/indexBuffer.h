@@ -23,6 +23,12 @@ public:
     // Ctor from data, size and number of indices    [sized int to hint about index size]
     IndexBuffer(const void* data, ptrdiff_t dataSize, uint16_t count);
 
+    // Copy Ctor
+    IndexBuffer(const IndexBuffer& other);
+
+    // Copy Assignment
+    IndexBuffer& operator=(const IndexBuffer& other);
+
     // Move Ctor
     IndexBuffer(IndexBuffer&& other);
 
@@ -43,6 +49,10 @@ public:
 
     // Unbind from the element buffer
     void unbind() const;
+
+private:
+    // Copy data from the other buffer into this one and re-initialize it
+    void resetBufferDataFromCopy(const IndexBuffer& other);
 };
 
 #endif // INDEXBUFFER_H
