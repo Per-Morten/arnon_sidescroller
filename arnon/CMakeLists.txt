@@ -19,6 +19,8 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexBuffer.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/indexBuffer.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/indexBuffer.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shaderObject.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shaderObject.cpp
                )
 
 # Set include directories
