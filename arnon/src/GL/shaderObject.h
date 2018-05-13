@@ -31,6 +31,8 @@ public:
 
     ShaderObject(std::ifstream& shaderSourceFile, EShaderType type);
     
+    // #TODO : Copy (if makes sense) / Move Ctors
+
     // Load the shader source from a file
     void loadFromFile(std::ifstream& file, EShaderType type);
 
@@ -42,7 +44,7 @@ public:
 
 private:
     // Compile the given shader source code
-    bool compile();
+    bool compile(const char* shaderSource, EShaderType type);
 
     // Validate the compiled shader to ensure nothing went wrong
     bool validate();
