@@ -19,7 +19,7 @@ ShaderObject::ShaderObject(ShaderObject&& other) : m_name(other.m_name)
     other.m_name = 0;
 }
 
-ShaderObject::ShaderObject& ShaderObject::operator=(ShaderObject&& other)
+ShaderObject& ShaderObject::operator=(ShaderObject&& other)
 {
     if (&other == this) return *this;
     

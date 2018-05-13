@@ -39,6 +39,9 @@ public:
     
     ~ShaderObject();
 
+    // ShaderProgram is a sensible friend since it needs to acces m_name to attach
+    friend class ShaderProgram;
+
     // Load the shader source from a file
     void loadFromFile(std::ifstream& file, EShaderType type);
 
