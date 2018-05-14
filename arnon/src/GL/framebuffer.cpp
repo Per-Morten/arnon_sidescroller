@@ -77,6 +77,16 @@ void Framebuffer::unbind()
     gl::BindFramebuffer(gl::FRAMEBUFFER, 0);
 }
 
+void Framebuffer::bindTexture(unsigned bindingPoint)
+{
+    gl::BindTextureUnit(bindingPoint, m_texture);
+}
+
+void Framebuffer::unbindTexture(unsigned bindingPoint)
+{
+    gl::BindTextureUnit(bindingPoint, 0);
+}
+
 void Framebuffer::resetToNewSize(const glm::ivec2& size)
 {
     // Assume that we have valid objects and just delete them by default

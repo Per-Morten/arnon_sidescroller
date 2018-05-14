@@ -57,6 +57,12 @@ public:
     // Unbind the framebuffer (from both read and write)
     void unbind();
 
+    // Bind the framebuffer color texture to a texture binding point
+    void bindTexture(unsigned bindingPoint);
+
+    // Unbind the framebuffer color texture from a texture binding point
+    void unbindTexture(unsigned bindingPoint);
+
     // Recreate the framebuffer with a new size
     void resetToNewSize(const glm::ivec2& size);
 
