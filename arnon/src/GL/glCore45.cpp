@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <vector>
-#include <string.h>
-#include <stddef.h>
+#include <cstring>
+#include <cstddef>
 #include "glCore45.h"
 
 #if defined(__APPLE__)

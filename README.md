@@ -111,7 +111,7 @@ protected:      // Member Functions
 
 private:        // Member Functions
 
-}
+};
 ```
 
 ##### Class Members

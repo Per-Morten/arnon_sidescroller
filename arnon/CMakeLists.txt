@@ -7,6 +7,9 @@ target_sources(${PROJECT_NAME}
                # Project Specific Files
                ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
 
+               # Rendering
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D.cpp
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
