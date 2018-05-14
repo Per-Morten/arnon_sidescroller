@@ -1,5 +1,4 @@
 # Arnon Sidescroller
-
 add_executable(${PROJECT_NAME} "")
 
 # Set source files
@@ -41,6 +40,11 @@ target_include_directories(${PROJECT_NAME}
 find_package(glfw3 3.2 REQUIRED)
 find_package(glm REQUIRED)
 find_package(OpenGL REQUIRED)
+
+# To enable <filesystem> on Linux / GCC
+if(UNIX)
+  target_link_libraries(${PROJECT_NAME} stdc++fs)
+endif()
 
 # Link Libraries
 target_link_libraries(${PROJECT_NAME}
