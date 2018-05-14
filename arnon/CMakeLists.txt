@@ -14,6 +14,8 @@ target_sources(${PROJECT_NAME}
                # OpenGL Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/framebuffer.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/framebuffer.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/texture.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/texture.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexArray.h

@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <string>
 
-class Texture
+class Texture final
 {
 private:
     // The OpenGL Texture Name
