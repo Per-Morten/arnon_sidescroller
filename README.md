@@ -79,23 +79,111 @@
     * Doxygen
 
 ## Coding Standards
-* Braces go on next line
-* Members
-    * m_ for members
-    * g_ for globals
-    * s_ for static members
-* Standard camelCase
-* Indent size 4
-* Use fixed width integer typedefs
-    * for member variables, or in other places where size matters
-    * Function parameters should still be regular int's and uints' unless there are particular reasons.
 
-## Workload
-* PMS
-    * Entity Component System
-* Carl
-    * Debug/Stats
-    * Event Queue
-* Elisa
-    * Scene Management
-    * Controller handling
+### Naming Convention
+
+#### Functions
+
+`camelCase(int argumentOne);`
+
+#### Classes
+
+`class ClassName;`
+
+##### Integral Member Variables
+* Use fixed width integer typedefs
+* for member variables, or in other places where size matters
+* Function parameters should still be regular int's and uints' unless there are particular reasons.
+
+##### Class Layout
+```C++
+class Widget
+{
+private:        // Member Variables
+
+protected:      // Member Variables
+
+public:         // Member Variables
+
+public:         // Member Functions
+
+protected:      // Member Functions
+
+private:        // Member Functions
+
+}
+```
+
+##### Class Members
+
+`int m_classMember;`
+
+#### Variables
+
+`int variableName;`
+
+#### Global Variables
+
+`int g_globalVariable;`
+
+#### Static Variables
+
+`int s_staticVariable;`
+
+### Braces
+
+Allman style, på neste linje
+
+```C++
+class Name
+{
+    // Body
+};
+
+void function()
+{
+    // Body
+}
+
+while(...)
+{
+    // Body
+}
+
+for(...;...;...)
+{
+    // Body
+}
+
+if(...)
+{
+    // Body
+}
+else
+{
+    // Body
+}
+```
+
+### Indentation
+
+| Tab Width | Indent Width |
+| --------  | --------     |
+| 4         | 4            |
+
+Ensure that indentation is set up using spaces!
+
+### Includes
+
+Sort includes in three chunks:
+
+```C++
+#include "fil.h"            // Files from our project
+#include "fil2.h"
+
+#include <string>           // Files from STL
+#include <some_stl_header>
+
+#include "imgui.h"          // External Libs
+#include "fmt.h"
+```
