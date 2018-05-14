@@ -8,7 +8,6 @@ void Shape2D::draw(const ShaderProgram& shader) {
     {
         shader.bind();
         m_vao->bind();
-        m_ibo->bind();
         gl::DrawElements(gl::TRIANGLES, m_ibo->getCount(), gl::UNSIGNED_SHORT, nullptr);
     }
 }

@@ -12,6 +12,8 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_quad.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_quad.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_circle.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_circle.cpp
 
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
