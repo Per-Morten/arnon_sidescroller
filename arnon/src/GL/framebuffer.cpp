@@ -22,14 +22,14 @@ Framebuffer& Framebuffer::operator=(const Framebuffer& other)
     return *this;
 }
 
-Framebuffer::Framebuffer(Framebuffer&& other) : m_name(other.m_name), m_renderbuffer(other.m_renderbuffer), m_texture(other.m_texture)
+Framebuffer::Framebuffer(Framebuffer&& other) noexcept : m_name(other.m_name), m_texture(other.m_texture), m_renderbuffer(other.m_renderbuffer)
 {
     other.m_name = 0;
     other.m_texture = 0;
     other.m_renderbuffer = 0;
 }
 
-Framebuffer& Framebuffer::operator=(Framebuffer&& other)
+Framebuffer& Framebuffer::operator=(Framebuffer&& other) noexcept
 {
     // Protect / Delete
     if (this == &other) return *this;
@@ -137,7 +137,7 @@ void Framebuffer::createRenderbuffer(const glm::ivec2& size)
     gl::NamedRenderbufferStorage(m_renderbuffer, gl::DEPTH24_STENCIL8, size.x, size.y);
 }
 
-const bool Framebuffer::validateFramebuffer() const
+bool Framebuffer::validateFramebuffer() const
 {
     return gl::CheckNamedFramebufferStatus(m_name, gl::FRAMEBUFFER) == gl::FRAMEBUFFER_COMPLETE;
 }

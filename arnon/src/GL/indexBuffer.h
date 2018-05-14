@@ -30,19 +30,19 @@ public:
     IndexBuffer& operator=(const IndexBuffer& other);
 
     // Move Ctor
-    IndexBuffer(IndexBuffer&& other);
+    IndexBuffer(IndexBuffer&& other) noexcept;
 
     // Move Assignment
-    IndexBuffer& operator=(IndexBuffer&& other);
+    IndexBuffer& operator=(IndexBuffer&& other) noexcept;
 
     // Dtor
     ~IndexBuffer();
 
     // Return the OpenGL name of the buffer
-    const unsigned name() const;
+    unsigned name() const;
 
     // Get the count of indices
-    const unsigned getCount() const;
+    unsigned getCount() const;
 
     // Bind to the element buffer
     void bind() const;

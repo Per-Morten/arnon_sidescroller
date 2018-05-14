@@ -26,12 +26,12 @@ IndexBuffer& IndexBuffer::operator=(const IndexBuffer& other)
     return *this;
 }
 
-IndexBuffer::IndexBuffer(IndexBuffer&& other) : m_name(other.m_name), m_count(other.m_count)
+IndexBuffer::IndexBuffer(IndexBuffer&& other) noexcept : m_name(other.m_name), m_count(other.m_count)
 {
     other.m_name = 0;
 }
 
-IndexBuffer& IndexBuffer::operator=(IndexBuffer&& other)
+IndexBuffer& IndexBuffer::operator=(IndexBuffer&& other) noexcept
 {
     if (this == &other) return *this;
 
@@ -52,12 +52,12 @@ IndexBuffer::~IndexBuffer()
     gl::DeleteBuffers(1, &m_name);
 }
 
-const unsigned IndexBuffer::name() const
+unsigned IndexBuffer::name() const
 {
     return m_name;
 }
 
-const unsigned IndexBuffer::getCount() const
+unsigned IndexBuffer::getCount() const
 {
     return m_count;
 }

@@ -4,6 +4,7 @@
 #define VERTEXARRAY_H
 
 #include <cstdint>
+#include <cstddef>
 
 class IndexBuffer;
 class VertexBuffer;
@@ -19,13 +20,13 @@ public:
     VertexArray();
 
     // Move Ctor
-    VertexArray(VertexArray&& other);
+    VertexArray(VertexArray&& other) noexcept;
 
     // Move Ass
-    VertexArray& operator=(VertexArray&& other);
+    VertexArray& operator=(VertexArray&& other) noexcept;
 
     // Dtor
-    ~VertexArray();
+    ~VertexArray() noexcept;
 
     // Bind Vertex Array
     void bind() const;
@@ -35,15 +36,15 @@ public:
 
     //************************************
     // Method:    VertexArray::name
-    // Access:    public 
+    // Access:    public
     // Brief:     Get the OpenGL Name of the Vertex Array
     // Example:   gl::BindVertexArray(vao.name());
     //************************************
-    const unsigned name() const;
+    unsigned name() const;
 
     // Add an attribute to the vertex array. For a vec4, you would add(4, gl::FLOAT, ...)
     void setAttribute(unsigned attribute, unsigned binding, int size, unsigned type, unsigned offset, bool normalize = false);
-    
+
     // Add a NOT normalized integral vertex attribute. Type must be of an integral type.
     void setIntegerAttribute(unsigned attribute, unsigned binding, int size, unsigned type, unsigned offset);
 
@@ -55,7 +56,7 @@ public:
 
     // Set the vertex buffer for the given binding point that has the Vertex Array attribute data
     void setVertexBuffer(const VertexBuffer& vbo, unsigned binding, int stride, ptrdiff_t offset=0);
-    
+
     // Set the index buffer to use for indexed drawing
     void setIndexBuffer(const IndexBuffer& ibo);
 };

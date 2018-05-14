@@ -22,14 +22,14 @@ public:
 
     // Construct from filepath
     Texture(const std::string& filepath);
-    
+
     // #TODO : Texture(const std::filesystem::path& filepath);
 
     // Move Ctor
-    Texture(Texture&& other);
+    Texture(Texture&& other) noexcept;
 
     // Move Ass
-    Texture& operator=(Texture&& other);
+    Texture& operator=(Texture&& other) noexcept;
 
     // Dtor
     ~Texture();
@@ -45,7 +45,7 @@ public:
 
 private:
     // Check if the texture is a valid OpenGL object
-    const bool isValid() const;
+    bool isValid() const;
 
 };
 

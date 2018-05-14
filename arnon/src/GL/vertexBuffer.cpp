@@ -11,7 +11,7 @@ VertexBuffer::VertexBuffer(const void* data, ptrdiff_t dataSize)
     gl::NamedBufferData(m_name, dataSize, data, gl::STATIC_DRAW);
 }
 
-VertexBuffer& VertexBuffer::operator=(VertexBuffer&& other)
+VertexBuffer& VertexBuffer::operator=(VertexBuffer&& other) noexcept
 {
     if (this == &other) return *this;
 
@@ -25,7 +25,7 @@ VertexBuffer& VertexBuffer::operator=(VertexBuffer&& other)
     return *this;
 }
 
-VertexBuffer::VertexBuffer(VertexBuffer&& other) : m_name(other.m_name)
+VertexBuffer::VertexBuffer(VertexBuffer&& other) noexcept : m_name(other.m_name)
 {
     other.m_name = 0;
 }
@@ -57,7 +57,7 @@ void VertexBuffer::unbind() const
     gl::BindBuffer(gl::ARRAY_BUFFER, 0);
 }
 
-const unsigned VertexBuffer::name() const
+unsigned VertexBuffer::name() const
 {
     return m_name;
 }

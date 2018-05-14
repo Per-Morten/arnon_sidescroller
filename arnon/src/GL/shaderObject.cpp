@@ -15,15 +15,15 @@ ShaderObject::ShaderObject(std::ifstream& shaderSourceFile, EShaderType type)
     loadFromFile(shaderSourceFile, type);
 }
 
-ShaderObject::ShaderObject(ShaderObject&& other) : m_name(other.m_name)
+ShaderObject::ShaderObject(ShaderObject&& other) noexcept : m_name(other.m_name)
 {
     other.m_name = 0;
 }
 
-ShaderObject& ShaderObject::operator=(ShaderObject&& other)
+ShaderObject& ShaderObject::operator=(ShaderObject&& other) noexcept
 {
     if (&other == this) return *this;
-    
+
     // Delete current GlObject
     gl::DeleteShader(m_name);
 
@@ -55,7 +55,7 @@ void ShaderObject::loadFromString(const std::string& sourceCode, EShaderType typ
     compile(sourceCode.c_str(), type);
 }
 
-const bool ShaderObject::isValid() const
+bool ShaderObject::isValid() const
 {
     return m_name != 0;
 }
@@ -65,10 +65,10 @@ bool ShaderObject::compile(const char* shaderSource, EShaderType type) {
     if (isValid()) gl::DeleteShader(m_name);
 
     // Create, assign source code and compile
-    m_name = gl::CreateShader(static_cast<GLenum>(type));  
+    m_name = gl::CreateShader(static_cast<GLenum>(type));
     gl::ShaderSource(m_name, 1, &shaderSource, nullptr);
     gl::CompileShader(m_name);
-  
+
     // If it was invalid then clean up and return
     if (!validate())
     {
@@ -93,7 +93,7 @@ bool ShaderObject::validate()
 
         // Get the log contents and log it
         gl::GetShaderInfoLog(m_name, logLength, nullptr, logString.data());
-        
+
         // #TODO : Log the string properly once logging is implemented
         std::cout << logString << '\n';
 

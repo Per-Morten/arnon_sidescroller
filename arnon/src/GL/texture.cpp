@@ -1,7 +1,5 @@
 #include "texture.h"
 
-#include <filesystem>
-
 #include "glm/vec2.hpp"
 #include "GL/glCore45.h"
 #include "GL/stb_image.h"
@@ -11,12 +9,12 @@ Texture::Texture(const std::string& filepath)
     loadFromFile(filepath);
 }
 
-Texture::Texture(Texture&& other) : m_name(other.m_name)
+Texture::Texture(Texture&& other) noexcept : m_name(other.m_name)
 {
     other.m_name = 0;
 }
 
-Texture& Texture::operator=(Texture&& other)
+Texture& Texture::operator=(Texture&& other) noexcept
 {
     if (this == &other) return *this;
 
@@ -56,7 +54,7 @@ void Texture::loadFromFile(const std::string& filepath)
 
     // #TODO : Error the fuck out of here if pixels were not loaded!
 
-    // Create accurately sized texture 
+    // Create accurately sized texture
     gl::CreateTextures(gl::TEXTURE_2D, 1, &m_name);
     gl::TextureStorage2D(m_name, 1, gl::RGBA8, dimensions.x, dimensions.y);
 
@@ -71,7 +69,7 @@ void Texture::loadFromFile(const std::string& filepath)
     stbi_image_free(pixels);
 }
 
-const bool Texture::isValid() const
+bool Texture::isValid() const
 {
     return m_name != 0;
 }

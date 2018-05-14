@@ -1,6 +1,6 @@
 /// ArnonSidescroller
 
-/* 
+/*
  * A shader program consists of various
  * shader objects that are linked together
  * to work as part of the OpenGL pipeline.
@@ -26,9 +26,9 @@ public:
 
     ShaderProgram(const ShaderObject& vertexShader, const ShaderObject& fragmentShader);
 
-    ShaderProgram(ShaderProgram&& other);
+    ShaderProgram(ShaderProgram&& other) noexcept;
 
-    ShaderProgram& operator=(ShaderProgram&& other);
+    ShaderProgram& operator=(ShaderProgram&& other) noexcept;
 
     ~ShaderProgram();
 
@@ -43,9 +43,9 @@ public:
 
     // Create and link the program from a vertex shader, using the default fragment shader
     void createFromVertexOnly(const ShaderObject& vertexShader);
-    
+
     // Check if the current program refers to a valid OpenGL object
-    const bool isValid() const;
+    bool isValid() const;
 
 private:
     // Link the program with the provided shaders

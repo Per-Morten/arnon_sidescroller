@@ -1,4 +1,4 @@
-/* 
+/*
  * A shader object is the object file resulting
  * from compiling a shader. It can be attached
  * to ShaderPrograms to create usable programs.
@@ -31,12 +31,12 @@ public:
 
     ShaderObject(std::ifstream& shaderSourceFile, EShaderType type);
 
-    ShaderObject(ShaderObject&& other);
+    ShaderObject(ShaderObject&& other)noexcept;
 
-    ShaderObject& operator=(ShaderObject&& other);
-    
+    ShaderObject& operator=(ShaderObject&& other) noexcept;
+
     // #TODO : Copy Ctors if they make sense / GL has a way to copy shader objects
-    
+
     ~ShaderObject();
 
     // ShaderProgram is a sensible friend since it needs to acces m_name to attach
@@ -49,7 +49,7 @@ public:
     void loadFromString(const std::string& sourceCode, EShaderType type);
 
     // Return true if the ShaderObject refers to a valid OpenGL object
-    const bool isValid() const;
+    bool isValid() const;
 
 private:
     // Compile the given shader source code

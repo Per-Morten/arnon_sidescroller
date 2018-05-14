@@ -19,7 +19,7 @@ struct WindowContextHints
 
     bool useCoreProfile = true;  // False means compat profile
     bool decorated      = true;  // Borders etc.
-    bool visible        = true;  
+    bool visible        = true;
     bool resizeable     = true;
     bool fullscreen     = false;
     bool alwaysOnTop    = false; // Always be on top of other windows
@@ -56,7 +56,7 @@ public:
     void setContextAsCurrent();
 
     // Get the size of the window
-    const glm::vec2& getSize() const;
+    const glm::vec2 getSize() const;
 
     // Get underlying GLFWwindow pointer (Consider implicit conversion?)
     const GLFWwindow* get() const;

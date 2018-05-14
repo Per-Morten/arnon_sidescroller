@@ -1,6 +1,6 @@
 /// ArnonSideScroller
 
-/* 
+/*
  * Abstraction of an OpenGL Vertex Buffer
  */
 
@@ -27,10 +27,10 @@ public:
     VertexBuffer& operator=(const VertexBuffer& other);
 
     // Move Ctor
-    VertexBuffer(VertexBuffer&& other);
+    VertexBuffer(VertexBuffer&& other) noexcept;
 
     // Move Assignment
-    VertexBuffer& operator=(VertexBuffer&& other);
+    VertexBuffer& operator=(VertexBuffer&& other) noexcept;
 
     // Dtor
     ~VertexBuffer();
@@ -42,8 +42,8 @@ public:
     void unbind() const;
 
     // Return the OpenGL name of the buffer
-    const unsigned name() const;
-    
+    unsigned name() const;
+
     // Reset buffer and exchange data
     void resetData(const void* newData, ptrdiff_t newSize);
 

@@ -68,7 +68,7 @@ void Window::setContextAsCurrent()
     }
 }
 
-const glm::vec2& Window::getSize() const
+const glm::vec2 Window::getSize() const
 {
     return m_size;
 }

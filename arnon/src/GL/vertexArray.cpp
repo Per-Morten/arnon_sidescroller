@@ -9,12 +9,12 @@ VertexArray::VertexArray()
     gl::CreateVertexArrays(1, &m_name);
 }
 
-VertexArray::VertexArray(VertexArray&& other) : m_name(other.m_name)
+VertexArray::VertexArray(VertexArray&& other) noexcept : m_name(other.m_name)
 {
     other.m_name = 0;
 }
 
-VertexArray& VertexArray::operator=(VertexArray&& other)
+VertexArray& VertexArray::operator=(VertexArray&& other) noexcept
 {
     if (this == &other) return *this;
 
@@ -28,7 +28,7 @@ VertexArray& VertexArray::operator=(VertexArray&& other)
     return *this;
 }
 
-VertexArray::~VertexArray()
+VertexArray::~VertexArray() noexcept
 {
     gl::DeleteVertexArrays(1, &m_name);
 }
@@ -43,7 +43,7 @@ void VertexArray::unbind() const
     gl::BindVertexArray(0);
 }
 
-const unsigned VertexArray::name() const
+unsigned VertexArray::name() const
 {
     return m_name;
 }

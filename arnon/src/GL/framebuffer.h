@@ -1,6 +1,6 @@
 /// ArnonSidescroller
 
-/* 
+/*
  * Abstracts an OpenGL framebuffer. Currently
  * has a fixed layout. Texture attached to the
  * Color0 attachment, and a renderbuffer attached
@@ -37,10 +37,10 @@ public:
     Framebuffer& operator=(const Framebuffer& other);
 
     // Move Ctor
-    Framebuffer(Framebuffer&& other);
+    Framebuffer(Framebuffer&& other) noexcept;
 
     // Move Ass
-    Framebuffer& operator=(Framebuffer&& other);
+    Framebuffer& operator=(Framebuffer&& other) noexcept;
 
     // Dtor
     ~Framebuffer();
@@ -50,7 +50,7 @@ public:
 
     // Bind the framebuffer as a write framebuffer
     void bindWriteonly();
-    
+
     // Bind the framebuffer as a read framebuffer
     void bindReadonly();
 
@@ -68,7 +68,7 @@ public:
 
 private:
     // Check with OpenGL if whether the framebuffer is complete
-    const bool validateFramebuffer() const;
+    bool validateFramebuffer() const;
 
     // Create the framebuffer
     void createFramebuffer(const glm::ivec2& size);
@@ -82,6 +82,5 @@ private:
     // Reset this framebuffer to be a copy of the other
     void resetFromCopy(const Framebuffer& other);
 };
-
 
 #endif // FRAMEBUFFER_H
