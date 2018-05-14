@@ -10,6 +10,9 @@ target_sources(${PROJECT_NAME}
                # Rendering
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_quad.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_quad.cpp
+
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
