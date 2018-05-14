@@ -16,12 +16,12 @@ Quad::Quad(const glm::vec2& size)
 
     // Create VBO and IBO from the data created above
     auto vbo = std::make_unique<VertexBuffer>(vertices.data(), sizeof(Shape2DVertex) * vertices.size());
-    auto ibo = std::make_unique<IndexBuffer>(indices.data(), sizeof(uint16_t) * indices.size(), indices.size());
+    auto ibo = std::make_unique<IndexBuffer>(indices.data(), sizeof(uint16_t) * indices.size(), static_cast<uint16_t>(indices.size()));
     
     // Create VAO and attach the VBO to binding 0, and set the IBO
     auto vao = std::make_unique<VertexArray>();
     vao->setVertexBuffer(*vbo, 0, sizeof(Shape2DVertex));
-    vao->setIndexBuffer(*ibo);
+    // vao->setIndexBuffer(*ibo); #TODO : Investigate why this works, but produces a GL error when not also bound.. Hmmm??
 
     // Set the vertex attributes
     vao->setAttribute(0, 0, 2, gl::FLOAT, 0);
