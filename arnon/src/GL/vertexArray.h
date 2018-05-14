@@ -33,7 +33,12 @@ public:
     // Unbind Vertex Array
     void unbind() const;
 
-    // Get the OpenGL name of the Vertex Array
+    //************************************
+    // Method:    VertexArray::name
+    // Access:    public 
+    // Brief:     Get the OpenGL Name of the Vertex Array
+    // Example:   gl::BindVertexArray(vao.name());
+    //************************************
     const unsigned name() const;
 
     // Add an attribute to the vertex array. For a vec4, you would add(4, gl::FLOAT, ...)

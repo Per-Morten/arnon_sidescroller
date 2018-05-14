@@ -33,10 +33,10 @@ public:
     ~ShaderProgram();
 
     // Enables the program as the active OpenGL Shader
-    void bind();
+    void bind() const;
 
     // Disables the program as the active OpenGL Shader
-    void unbind();
+    void unbind() const;
 
     // Create and link the program from a vertex and fragment shader
     void create(const ShaderObject& vertexShader, const ShaderObject& fragmentShader);

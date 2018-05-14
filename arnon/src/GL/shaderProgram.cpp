@@ -45,14 +45,12 @@ ShaderProgram::~ShaderProgram()
     gl::DeleteProgram(m_name);
 }
 
-void ShaderProgram::bind()
-{
+void ShaderProgram::bind() const {
     // #TODO : Make log entry if program name i 0, aka nothing to bind
     gl::UseProgram(m_name);
 }
 
-void ShaderProgram::unbind()
-{
+void ShaderProgram::unbind() const {
     gl::UseProgram(0);
 }
 
