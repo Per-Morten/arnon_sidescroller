@@ -13,8 +13,9 @@
 #include <cstdio>
 #include <string>
 #include <vector>
-#include <utility>
-#include <iomanip>
+#include <fstream>
+#include <utility> // forward
+#include <iomanip> // put_time
 
 #include "fmt/format.h"
 #include "fmt/ostream.h"
@@ -62,6 +63,9 @@ public:
     // Shortcut to log at Error level
     template<typename... ArgList>
     void err(const char* formatString, ArgList&&... args);
+
+    // Flush the log history to a log file
+    inline void toFile(const std::string& filename) const;
 };
 
 template<typename... ArgList>
@@ -85,7 +89,7 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
 #ifdef __linux__
         printf("\33[37%s\33[0m", finalMessage.c_str());
 #elif _WIN32
-
+        // #TODO: Some mythical WinAPI Call noone ever heard about before /shrug
 #endif
         break;
     case ELogLevel::Info:
@@ -104,7 +108,7 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
         break;
     case ELogLevel::Error:
 #ifdef __linux__
-        printf("\33[33m%s\33[0m", finalMessage.c_str());
+        printf("\33[31m%s\33[0m", finalMessage.c_str());
 #elif _WIN32
 
 #endif
@@ -116,27 +120,36 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
 }
 
 template<typename... ArgList>
-void debug(const char* formatString, ArgList&&... args)
+void Logger::debug(const char* formatString, ArgList&&... args)
 {
     log(formatString, ELogLevel::Debug, std::forward<ArgList>(args)...);
 }
 
 template<typename... ArgList>
-void info(const char* formatString, ArgList&&... args)
+void Logger::info(const char* formatString, ArgList&&... args)
 {
     log(formatString, ELogLevel::Info, std::forward<ArgList>(args)...);
 }
 
 template<typename... ArgList>
-void warn(const char* formatString, ArgList&&... args)
+void Logger::warn(const char* formatString, ArgList&&... args)
 {
     log(formatString, ELogLevel::Warn, std::forward<ArgList>(args)...);
 }
 
 template<typename... ArgList>
-void err(const char* formatString, ArgList&&... args)
+void Logger::err(const char* formatString, ArgList&&... args)
 {
     log(formatString, ELogLevel::Error, std::forward<ArgList>(args)...);
+}
+
+void Logger::toFile(const std::string& filename) const
+{
+    std::ofstream outFile(filename);
+    for(const auto& line : m_logOfLogs)
+    {
+        outFile << line;
+    }
 }
 
 #endif  // LOGGER_H
