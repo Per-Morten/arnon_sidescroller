@@ -1,11 +1,5 @@
 /// ArnonSidescroller
 
-/*
- * The logger is a logger that wraps FMT
- * and produces colored output based on
- * the error level.
- */
-
 #ifndef LOGGER_H
 #define LOGGER_H
 
@@ -31,7 +25,9 @@ enum class ELogLevel : uint8_t
 
 /*!
  * \brief The Logger class handles logging at four different log
- * levels. Debug, Info, Warning and Error.
+ * levels. Debug, Info, Warning and Error. It wraps FMT
+ * and produces colored output based on the error level. Logs
+ * can also be printed to a file.
  */
 class Logger
 {
@@ -79,6 +75,12 @@ public:
     // Flush the log history to a log file
     inline void toFile(const std::string& filename) const;
 
+    /*!
+     * \brief setLogMask sets the log visibilty mask
+     * \param maskLevel - The new level to mask at
+     */
+    inline void setLogMask(ELogLevel maskLevel);
+
 private:
     /*!
      * \brief checkLogLevel checks the current log mask against the level of other
@@ -103,7 +105,8 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
     // Log at appropriate level (Colors / Visibility)
     // #TODO : Implement coloring (WIN32) and visibility
     // #NOTE : Linux can use ASCII escape sequence, Windows will have to be more tricksy...
-    if(checkLogLevel(level)){
+    if(checkLogLevel(level))
+    {
         switch (level)
         {
         case ELogLevel::Debug:
