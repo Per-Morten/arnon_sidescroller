@@ -68,28 +68,46 @@ template<typename... ArgList>
 void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
 {
     // Format the log message and get the current time
-    auto printMsg = fmt::format(formatString, std::forward<ArgList>(args)...);
-    auto time = std::time(nullptr);
+    const auto printMsg = fmt::format(formatString, std::forward<ArgList>(args)...);
+    const auto time = std::time(nullptr);
 
-    // Produce the final message
-    auto finalMessage = fmt::format(logFormat.c_str(), "DEBUG",
+    // Produce the final message [ non const since it will be moved from later ]
+    auto finalMessage = fmt::format(logFormat.c_str(), "LEVEL",
                                     std::put_time(std::localtime(&time), "%T"),
                                     printMsg);
 
     // Log at appropriate level (Colors / Visibility)
+    // #TODO : Implement coloring (WIN32) and visibility
+    // #NOTE : Linux can use ASCII escape sequence, Windows will have to be more tricksy...
     switch (level)
     {
     case ELogLevel::Debug:
-        printf("%s", finalMessage.c_str());
+#ifdef __linux__
+        printf("\33[37%s\33[0m", finalMessage.c_str());
+#elif _WIN32
+
+#endif
         break;
     case ELogLevel::Info:
-        printf("%s", finalMessage.c_str());
+#ifdef __linux__
+        printf("\33[37m%s\33[0m", finalMessage.c_str());
+#elif _WIN32
+
+#endif
         break;
     case ELogLevel::Warn:
-        printf("%s", finalMessage.c_str());
+#ifdef __linux__
+        printf("\33[33m%s\33[0m", finalMessage.c_str());
+#elif _WIN32
+
+#endif
         break;
     case ELogLevel::Error:
-        printf("%s", finalMessage.c_str());
+#ifdef __linux__
+        printf("\33[33m%s\33[0m", finalMessage.c_str());
+#elif _WIN32
+
+#endif
         break;
     }
 
