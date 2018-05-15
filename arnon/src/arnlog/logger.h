@@ -29,6 +29,10 @@ enum class ELogLevel : uint8_t
     Error
 };
 
+/*!
+ * \brief The Logger class handles logging at four different log
+ * levels. Debug, Info, Warning and Error.
+ */
 class Logger
 {
 private:
@@ -41,10 +45,18 @@ private:
     // All previous log messages (to flush to file)
     std::vector<std::string> m_logOfLogs;
 
+    // Will only log items at current or higher log levels
+    ELogLevel m_logMask = ELogLevel::Debug;
+
 public:
     Logger(std::string name) : m_name(std::move(name)) {};
 
-    // Log the given formatted message at level.
+    /*!
+     * \brief log logs the given formatString at level
+     * \param formatString - The log message with optional formatting
+     * \param level - The log level to log at
+     * \param args - The optional format arguments required to format the provided string
+     */
     template<typename... ArgList>
     void log(const char* formatString, ELogLevel level, ArgList&&... args);
 
@@ -66,6 +78,14 @@ public:
 
     // Flush the log history to a log file
     inline void toFile(const std::string& filename) const;
+
+private:
+    /*!
+     * \brief checkLogLevel checks the current log mask against the level of other
+     * \param other - The log level to check against
+     * \return true if other is the same or higher than the current mask
+     */
+    bool checkLogLevel(ELogLevel other) const;
 };
 
 template<typename... ArgList>
@@ -83,39 +103,41 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
     // Log at appropriate level (Colors / Visibility)
     // #TODO : Implement coloring (WIN32) and visibility
     // #NOTE : Linux can use ASCII escape sequence, Windows will have to be more tricksy...
-    switch (level)
-    {
-    case ELogLevel::Debug:
+    if(checkLogLevel(level)){
+        switch (level)
+        {
+        case ELogLevel::Debug:
 #ifdef __linux__
-        printf("\33[37%s\33[0m", finalMessage.c_str());
+            printf("\33[37%s\33[0m", finalMessage.c_str());
 #elif _WIN32
-        // #TODO: Some mythical WinAPI Call noone ever heard about before /shrug
+            // #TODO: Some mythical WinAPI Call noone ever heard about before /shrug
 #endif
-        break;
-    case ELogLevel::Info:
+            break;
+        case ELogLevel::Info:
 #ifdef __linux__
-        printf("\33[37m%s\33[0m", finalMessage.c_str());
-#elif _WIN32
-
-#endif
-        break;
-    case ELogLevel::Warn:
-#ifdef __linux__
-        printf("\33[33m%s\33[0m", finalMessage.c_str());
+            printf("\33[37m%s\33[0m", finalMessage.c_str());
 #elif _WIN32
 
 #endif
-        break;
-    case ELogLevel::Error:
+            break;
+        case ELogLevel::Warn:
 #ifdef __linux__
-        printf("\33[31m%s\33[0m", finalMessage.c_str());
+            printf("\33[33m%s\33[0m", finalMessage.c_str());
 #elif _WIN32
 
 #endif
-        break;
+            break;
+        case ELogLevel::Error:
+#ifdef __linux__
+            printf("\33[31m%s\33[0m", finalMessage.c_str());
+#elif _WIN32
+
+#endif
+            break;
+        }
     }
 
-    // Add to log history
+    // Add to log history regardless of log level
     m_logOfLogs.emplace_back(std::move(finalMessage));
 }
 
@@ -150,6 +172,11 @@ void Logger::toFile(const std::string& filename) const
     {
         outFile << line;
     }
+}
+
+bool Logger::checkLogLevel(ELogLevel other) const
+{
+    return static_cast<uint16_t>(other) >= static_cast<uint16_t>(m_logMask);
 }
 
 #endif  // LOGGER_H

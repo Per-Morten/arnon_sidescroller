@@ -56,9 +56,6 @@ find_package(OpenGL REQUIRED)
 find_package(fmt REQUIRED)
 
 # To enable <filesystem> on Linux / GCC
-if(UNIX)
-  target_link_libraries(${PROJECT_NAME} stdc++fs)
-endif()
 
 # Link Libraries
 target_link_libraries(${PROJECT_NAME}
