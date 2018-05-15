@@ -1,5 +1,7 @@
 /// ArnonSidescroller
 
+/// The logger is a header only logger
+
 #ifndef LOGGER_H
 #define LOGGER_H
 
@@ -7,6 +9,7 @@
 #include <cstdio>
 #include <string>
 #include <vector>
+#include <memory>
 #include <fstream>
 #include <utility> // forward
 #include <iomanip> // put_time
@@ -109,34 +112,33 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
     {
         switch (level)
         {
-        case ELogLevel::Debug:
 #ifdef __linux__
+        case ELogLevel::Debug:
             printf("\33[37%s\33[0m", finalMessage.c_str());
-#elif _WIN32
-            // #TODO: Some mythical WinAPI Call noone ever heard about before /shrug
-#endif
             break;
         case ELogLevel::Info:
-#ifdef __linux__
             printf("\33[37m%s\33[0m", finalMessage.c_str());
-#elif _WIN32
-
-#endif
             break;
         case ELogLevel::Warn:
-#ifdef __linux__
             printf("\33[33m%s\33[0m", finalMessage.c_str());
-#elif _WIN32
-
-#endif
             break;
         case ELogLevel::Error:
-#ifdef __linux__
             printf("\33[31m%s\33[0m", finalMessage.c_str());
-#elif _WIN32
-
-#endif
             break;
+#elif _WIN32
+        case ELogLevel::Debug:
+            printf("%s", finalMessage.c_str());
+            break;
+        case ELogLevel::Info:
+            printf("%s", finalMessage.c_str());
+            break;
+        case ELogLevel::Warn:
+            printf("%s", finalMessage.c_str());
+            break;
+        case ELogLevel::Error:
+            printf("%s", finalMessage.c_str());
+            break;
+#endif
         }
     }
 
@@ -180,6 +182,16 @@ void Logger::toFile(const std::string& filename) const
 bool Logger::checkLogLevel(ELogLevel other) const
 {
     return static_cast<uint16_t>(other) >= static_cast<uint16_t>(m_logMask);
+}
+
+/*!
+ * \brief makeLogger creates a shared_ptr to a Logger
+ * \param logName - The name of the new log object
+ * \return Shared pointer to new Logger
+ */
+std::shared_ptr<Logger> makeLogger(std::string logName)
+{
+    return std::make_shared<Logger>(std::move(logName));
 }
 
 #endif  // LOGGER_H
