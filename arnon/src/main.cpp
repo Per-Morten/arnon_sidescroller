@@ -1,4 +1,5 @@
 #include "window.h"
+#include "arnlog/logger.h"
 #include "GL/framebuffer.h"
 #include "GL/shaderObject.h"
 #include "GL/shaderProgram.h"
@@ -89,6 +90,13 @@ int main()
     glfwMakeContextCurrent(window.get());
 
     gl::sys::LoadFunctions();
+
+    Logger debugLog("Debug");
+
+    debugLog.debug("Hello {}", "Bjarne");
+    debugLog.info("Hello {}", "Arne");
+    debugLog.warn("Hello {}", "Fjarne");
+    debugLog.err("Hello {}", "Stjarne");
 
     // Construct Shader
     ShaderObject vs(vertexShader, EShaderType::VertexShader);

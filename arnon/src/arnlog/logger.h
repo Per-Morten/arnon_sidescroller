@@ -14,6 +14,9 @@
 #include <utility> // forward
 #include <iomanip> // put_time
 
+#ifdef _WIN32
+#include "windows.h"
+#endif
 #include "fmt/format.h"
 #include "fmt/ostream.h"
 
@@ -110,6 +113,9 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
     // #NOTE : Linux can use ASCII escape sequence, Windows will have to be more tricksy...
     if(checkLogLevel(level))
     {
+#ifdef _WIN32
+        HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+#endif
         switch (level)
         {
 #ifdef __linux__
@@ -127,19 +133,27 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
             break;
 #elif _WIN32
         case ELogLevel::Debug:
+            SetConsoleTextAttribute(consoleHandle, 8);  // Gray
             printf("%s", finalMessage.c_str());
             break;
         case ELogLevel::Info:
+            SetConsoleTextAttribute(consoleHandle, 7);  // White
             printf("%s", finalMessage.c_str());
             break;
         case ELogLevel::Warn:
+            SetConsoleTextAttribute(consoleHandle, 14); // Yellow
             printf("%s", finalMessage.c_str());
             break;
         case ELogLevel::Error:
+            SetConsoleTextAttribute(consoleHandle, 12); // Red
             printf("%s", finalMessage.c_str());
             break;
 #endif
         }
+#ifdef _WIN32
+        // Reset to default
+        SetConsoleTextAttribute(consoleHandle, 8);
+#endif
     }
 
     // Add to log history regardless of log level
