@@ -109,8 +109,6 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
                                     printMsg);
 
     // Log at appropriate level (Colors / Visibility)
-    // #TODO : Implement coloring (WIN32) and visibility
-    // #NOTE : Linux can use ASCII escape sequence, Windows will have to be more tricksy...
     if(checkLogLevel(level))
     {
 #ifdef _WIN32
@@ -152,7 +150,7 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
         }
 #ifdef _WIN32
         // Reset to default
-        SetConsoleTextAttribute(consoleHandle, 8);
+        SetConsoleTextAttribute(consoleHandle, 7);
 #endif
     }
 
