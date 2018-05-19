@@ -91,6 +91,7 @@ int main()
 
     gl::sys::LoadFunctions();
 
+    // Log Testing
     logDebug("Hello {} how are your ${:.2f} doing?", "Bjarne", 24.61);
     logInfo("May I steal your {1} anal holes, {0}?", "John", "fine");
     logWarn("Hello {:^32} this is centered!", "[CENTERED MESSAGE]");

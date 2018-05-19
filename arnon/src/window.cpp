@@ -1,4 +1,5 @@
 #include "window.h"
+#include "arnlog/arnlog.h"
 
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
@@ -16,8 +17,14 @@ Window::Window(const glm::ivec2& size, const char* title, const WindowContextHin
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, hints.debugContext);
     glfwWindowHint(GLFW_RESIZABLE, hints.resizeable);
 
-    // #TODO : Error log if window failed to create!
     m_window = glfwCreateWindow(size.x, size.y, title, (hints.fullscreen ? glfwGetPrimaryMonitor() : nullptr), nullptr);
+    
+    // #NOTE : Consider throwing on failure
+    if (!m_window)
+    {
+        logErr("Failed to create GLFW Window!");
+    }
+
     setContextAsCurrent();
 }
 
