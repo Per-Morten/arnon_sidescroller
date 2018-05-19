@@ -91,10 +91,10 @@ int main()
 
     gl::sys::LoadFunctions();
 
-    logDebug("Hello {}", "Bjarne");
-    logInfo("Hello {}", "Arne");
-    logWarn("Hello {}", "Fjarne");
-    logErr("Hello {}", "Stjarne");
+    logDebug("Hello {} how are your ${:.2f} doing?", "Bjarne", 24.61);
+    logInfo("May I steal your {1} anal holes, {0}?", "John", "fine");
+    logWarn("Hello {:^32} this is centered!", "[CENTERED MESSAGE]");
+    logErr("This is a {errorType} error! Made by {name} of {kingdom}", fmt::arg("name", "Carl"), fmt::arg("kingdom", "Moravia"), fmt::arg("errorType", "nullptr"));
 
     // Construct Shader
     ShaderObject vs(vertexShader, EShaderType::VertexShader);
