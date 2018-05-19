@@ -1,5 +1,5 @@
 #include "window.h"
-#include "arnlog/logger.h"
+#include "arnlog/arnlog.h"
 #include "GL/framebuffer.h"
 #include "GL/shaderObject.h"
 #include "GL/shaderProgram.h"
@@ -91,12 +91,10 @@ int main()
 
     gl::sys::LoadFunctions();
 
-    Logger debugLog("Debug");
-
-    debugLog.debug("Hello {}", "Bjarne");
-    debugLog.info("Hello {}", "Arne");
-    debugLog.warn("Hello {}", "Fjarne");
-    debugLog.err("Hello {}", "Stjarne");
+    logDebug("Hello {}", "Bjarne");
+    logInfo("Hello {}", "Arne");
+    logWarn("Hello {}", "Fjarne");
+    logErr("Hello {}", "Stjarne");
 
     // Construct Shader
     ShaderObject vs(vertexShader, EShaderType::VertexShader);

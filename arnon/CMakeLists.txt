@@ -17,6 +17,8 @@ target_sources(${PROJECT_NAME}
 
                # Logger
                ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/logger.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/arnlog.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/arnlog.cpp
 
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
