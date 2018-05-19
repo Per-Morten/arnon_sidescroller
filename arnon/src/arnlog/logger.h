@@ -1,5 +1,4 @@
 /// ArnonSidescroller
-
 /// The logger is a header only logger
 
 #ifndef LOGGER_H
@@ -9,13 +8,12 @@
 #include <cstdio>
 #include <string>
 #include <vector>
-#include <memory>
 #include <fstream>
 #include <utility> // forward
 #include <iomanip> // put_time
 
 #ifdef _WIN32
-#include "windows.h"
+#include "windows.h" // for console coloring
 #endif
 #include "fmt/format.h"
 #include "fmt/ostream.h"
@@ -51,6 +49,9 @@ private:
     ELogLevel m_logMask = ELogLevel::Debug;
 
 public:
+    /*!
+     * \brief Construct a logger by providing a name for it
+     */
     Logger(std::string name) : m_name(std::move(name)) {};
 
     /*!
@@ -93,7 +94,7 @@ private:
      * \param other - The log level to check against
      * \return true if other is the same or higher than the current mask
      */
-    bool checkLogLevel(ELogLevel other) const;
+    inline bool checkLogLevel(ELogLevel other) const;
 };
 
 template<typename... ArgList>
@@ -103,33 +104,39 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
     const auto printMsg = fmt::format(formatString, std::forward<ArgList>(args)...);
     const auto time = std::time(nullptr);
 
+    // Convert enum to level string
+    std::string levelString(7, ' ');
+    switch (level)
+    {
+    case ELogLevel::Debug:       levelString = "DEBUG";       break;
+    case ELogLevel::Info:        levelString = "INFO";        break;
+    case ELogLevel::Warn:        levelString = "WARNING";     break;
+    case ELogLevel::Error:       levelString = "ERROR";       break;
+    default:                     levelString = "LEVEL";       break;
+    }
+
     // Produce the final message [ non const since it will be moved from later ]
-    auto finalMessage = fmt::format(logFormat.c_str(), "LEVEL",
+    auto finalMessage = fmt::format(logFormat.c_str(), levelString,
                                     std::put_time(std::localtime(&time), "%T"),
                                     printMsg);
 
     // Log at appropriate level (Colors / Visibility)
     if(checkLogLevel(level))
     {
-#ifdef _WIN32
-        HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-#endif
+#ifdef __linux__
         switch (level)
         {
-#ifdef __linux__
-        case ELogLevel::Debug:
-            printf("\33[37%s\33[0m", finalMessage.c_str());
-            break;
-        case ELogLevel::Info:
-            printf("\33[37m%s\33[0m", finalMessage.c_str());
-            break;
-        case ELogLevel::Warn:
-            printf("\33[33m%s\33[0m", finalMessage.c_str());
-            break;
-        case ELogLevel::Error:
-            printf("\33[31m%s\33[0m", finalMessage.c_str());
-            break;
+        case ELogLevel::Debug:  printf("\33[37%s\33[0m", finalMessage.c_str());   break;
+        case ELogLevel::Info:   printf("\33[37m%s\33[0m", finalMessage.c_str());  break;
+        case ELogLevel::Warn:   printf("\33[33m%s\33[0m", finalMessage.c_str());  break;
+        case ELogLevel::Error:  printf("\33[31m%s\33[0m", finalMessage.c_str());  break;
+        }
+
 #elif _WIN32
+        HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
+      
+        switch (level)
+        {
         case ELogLevel::Debug:
             SetConsoleTextAttribute(consoleHandle, 8);  // Gray
             printf("%s", finalMessage.c_str());
@@ -146,9 +153,7 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
             SetConsoleTextAttribute(consoleHandle, 12); // Red
             printf("%s", finalMessage.c_str());
             break;
-#endif
         }
-#ifdef _WIN32
         // Reset to default
         SetConsoleTextAttribute(consoleHandle, 7);
 #endif
@@ -194,16 +199,6 @@ void Logger::toFile(const std::string& filename) const
 bool Logger::checkLogLevel(ELogLevel other) const
 {
     return static_cast<uint16_t>(other) >= static_cast<uint16_t>(m_logMask);
-}
-
-/*!
- * \brief makeLogger creates a shared_ptr to a Logger
- * \param logName - The name of the new log object
- * \return Shared pointer to new Logger
- */
-std::shared_ptr<Logger> makeLogger(std::string logName)
-{
-    return std::make_shared<Logger>(std::move(logName));
 }
 
 #endif  // LOGGER_H
