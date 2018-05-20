@@ -1,5 +1,5 @@
 #include "framebuffer.h"
-#include "arnlog/arnlog.h"
+#include "debug/arnlog.h"
 
 #include "GL/glCore45.h"
 

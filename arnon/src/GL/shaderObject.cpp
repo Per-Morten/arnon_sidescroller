@@ -1,5 +1,5 @@
 #include "shaderObject.h"
-#include "arnlog/arnlog.h"
+#include "debug/arnlog.h"
 
 #include <iostream>
 #include <sstream>

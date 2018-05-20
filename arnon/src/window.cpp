@@ -1,5 +1,5 @@
 #include "window.h"
-#include "arnlog/arnlog.h"
+#include "debug/arnlog.h"
 
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"

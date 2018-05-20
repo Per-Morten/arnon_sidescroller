@@ -1,5 +1,5 @@
 #include "window.h"
-#include "arnlog/arnlog.h"
+#include "debug/arnlog.h"
 #include "GL/framebuffer.h"
 #include "GL/shaderObject.h"
 #include "GL/shaderProgram.h"
