@@ -9,6 +9,7 @@
 
 #include <cstdint>
 #include <string>
+#include <filesystem>
 
 class Texture final
 {
@@ -21,9 +22,10 @@ public:
     Texture() = default;
 
     // Construct from filepath
-    Texture(const std::string& filepath);
+    explicit Texture(const std::string& filepath);
 
-    // #TODO : Texture(const std::filesystem::path& filepath);
+    // Construct from an actual filepath
+    explicit Texture(const std::filesystem::path& filepath);
 
     // Move Ctor
     Texture(Texture&& other) noexcept;
@@ -46,6 +48,9 @@ public:
 private:
     // Check if the texture is a valid OpenGL object
     bool isValid() const;
+
+    // Validate the filepath to see if it is one of the supported extensions
+    bool validateFileExtension(const std::filesystem::path& filepath);
 
 };
 

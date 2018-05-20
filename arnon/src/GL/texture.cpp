@@ -5,14 +5,24 @@
 #include "GL/glCore45.h"
 #include "GL/stb_image.h"
 
+static const char* supported_file_formats[10] = { ".jpg", ".jpeg", ".png", ".tga", ".bmp", ".psd", ".gif", ".hdr", ".pic", ".pnm" };
+
 Texture::Texture(const std::string& filepath)
 {
+    // #TODO : Deprecate this Ctor to use filesystem one instead
     loadFromFile(filepath);
 }
 
 Texture::Texture(Texture&& other) noexcept : m_name(other.m_name)
 {
     other.m_name = 0;
+}
+
+Texture::Texture(const std::filesystem::path& filepath)
+{
+    ARN_ASSERT(std::filesystem::exists(filepath));
+    ARN_ASSERT(validateFileExtension(filepath));    
+    loadFromFile(filepath.string());
 }
 
 Texture& Texture::operator=(Texture&& other) noexcept
@@ -74,4 +84,17 @@ void Texture::loadFromFile(const std::string& filepath)
 bool Texture::isValid() const
 {
     return m_name != 0;
+}
+
+bool Texture::validateFileExtension(const std::filesystem::path& filepath)
+{
+    const auto& ext = filepath.extension();
+
+    // Ensure the provided format is one of the supported formats
+    for (auto i = std::begin(supported_file_formats); i != std::end(supported_file_formats); ++i)
+    {
+        if (ext == *i) return true;
+    }
+
+    return false;
 }
