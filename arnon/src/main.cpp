@@ -13,6 +13,10 @@
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
 
+#ifndef NDEBUG
+#define ARN_ASSERT_TERMINATE // Only log in debug mode
+#endif
+
 // For testing
 const std::string vertexShader =
 R"(
