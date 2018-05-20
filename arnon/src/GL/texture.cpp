@@ -1,4 +1,5 @@
 #include "texture.h"
+#include "debug/asserts.h"
 
 #include "glm/vec2.hpp"
 #include "GL/glCore45.h"
@@ -52,7 +53,8 @@ void Texture::loadFromFile(const std::string& filepath)
     glm::ivec2 dimensions;
     auto* pixels = stbi_load(filepath.c_str(), &dimensions.x, &dimensions.y, nullptr, 0);
 
-    // #TODO : Error the fuck out of here if pixels were not loaded!
+    // Explicit comparison for better error message
+    ARN_ASSERT(pixels != nullptr);
 
     // Create accurately sized texture
     gl::CreateTextures(gl::TEXTURE_2D, 1, &m_name);
