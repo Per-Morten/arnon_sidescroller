@@ -36,6 +36,8 @@ target_sources(${PROJECT_NAME}
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/glfwCallbacks.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/glfwCallbacks.cpp
 
                # OpenGL Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.h

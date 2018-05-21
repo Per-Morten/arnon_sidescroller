@@ -3,6 +3,8 @@
 #include "scene_mainMenu.h"
 #include "scene_optionsMenu.h"
 #include "sceneManager.h"
+#include "inputManager.h"
+#include "glfwCallbacks.h"
 #include "debug/arnlog.h"
 #include "debug/asserts.h"
 #include "GL/framebuffer.h"
@@ -59,6 +61,8 @@ void main()
 }
 )";
 
+// A global Input Manager Instance
+InputManager g_inputManager;
 
 int main()
 {
@@ -66,6 +70,11 @@ int main()
 
     auto window = Window({ 1280, 720 }, "Test");
     glfwMakeContextCurrent(window.get());
+
+    glfwSetCursorPosCallback(window.get(), cursor_position_callback);
+    glfwSetKeyCallback(window.get(), key_callback);
+    glfwSetScrollCallback(window.get(), scroll_callback);
+    glfwSetMouseButtonCallback(window.get(), mouse_button_callback);
 
     gl::sys::LoadFunctions();
 
@@ -81,7 +90,7 @@ int main()
     {
         glfwPollEvents();
         ImGui_ImplGlfwGL3_NewFrame();
-        
+
         sm.update(1.f / 144.f);
 
         ImGui::Text("Hello World");
