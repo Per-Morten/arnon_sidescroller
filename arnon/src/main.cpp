@@ -69,12 +69,6 @@ int main()
     glfwInit();
 
     auto window = Window({ 1280, 720 }, "Test");
-    glfwMakeContextCurrent(window.get());
-
-    glfwSetCursorPosCallback(window.get(), cursor_position_callback);
-    glfwSetKeyCallback(window.get(), key_callback);
-    glfwSetScrollCallback(window.get(), scroll_callback);
-    glfwSetMouseButtonCallback(window.get(), mouse_button_callback);
 
     gl::sys::LoadFunctions();
 

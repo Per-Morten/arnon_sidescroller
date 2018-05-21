@@ -13,7 +13,7 @@ public:
 
     virtual bool update(const float dt) override
     {
-        logInfo("This is the MAIN MENU scene updating!");
+
         return false;
     }
 };

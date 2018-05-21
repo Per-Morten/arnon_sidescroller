@@ -12,8 +12,7 @@ public:
     using Scene::Scene;
 
     virtual bool update(const float dt) override
-    {
-        logInfo("This is the OPTIONS MENU scene updating!");
+    {        
         return false;
     }
 };
