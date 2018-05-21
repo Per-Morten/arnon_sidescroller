@@ -77,9 +77,9 @@ void ImGui_ImplGlfwGL3_RenderDrawData(ImDrawData* draw_data)
     GLint last_program; gl::GetIntegerv(gl::CURRENT_PROGRAM, &last_program);
     GLint last_texture; gl::GetIntegerv(gl::TEXTURE_BINDING_2D, &last_texture);
     GLint last_sampler; gl::GetIntegerv(gl::SAMPLER_BINDING, &last_sampler);
-    GLint last_array_buffer; gl::GetIntegerv(gl::ARRAY_BUFFER_BINDING, &last_array_buffer);
-    GLint last_element_array_buffer; gl::GetIntegerv(gl::ELEMENT_ARRAY_BUFFER_BINDING, &last_element_array_buffer);
-    GLint last_vertex_array; gl::GetIntegerv(gl::VERTEX_ARRAY_BINDING, &last_vertex_array);
+//     GLint last_array_buffer; gl::GetIntegerv(gl::ARRAY_BUFFER_BINDING, &last_array_buffer);
+//     GLint last_element_array_buffer; gl::GetIntegerv(gl::ELEMENT_ARRAY_BUFFER_BINDING, &last_element_array_buffer);
+//     GLint last_vertex_array; gl::GetIntegerv(gl::VERTEX_ARRAY_BINDING, &last_vertex_array);
     GLint last_polygon_mode[2]; gl::GetIntegerv(gl::POLYGON_MODE, last_polygon_mode);
     GLint last_viewport[4]; gl::GetIntegerv(gl::VIEWPORT, last_viewport);
     GLint last_scissor_box[4]; gl::GetIntegerv(gl::SCISSOR_BOX, last_scissor_box);
@@ -165,9 +165,9 @@ void ImGui_ImplGlfwGL3_RenderDrawData(ImDrawData* draw_data)
     gl::BindTexture(gl::TEXTURE_2D, last_texture);
     gl::BindSampler(0, last_sampler);
     gl::ActiveTexture(last_active_texture);
-    gl::BindVertexArray(last_vertex_array);
-    gl::BindBuffer(gl::ARRAY_BUFFER, last_array_buffer);
-    gl::BindBuffer(gl::ELEMENT_ARRAY_BUFFER, last_element_array_buffer);
+//     gl::BindVertexArray(last_vertex_array);
+//     gl::BindBuffer(gl::ARRAY_BUFFER, last_array_buffer);
+//     gl::BindBuffer(gl::ELEMENT_ARRAY_BUFFER, last_element_array_buffer);
     gl::BlendEquationSeparate(last_blend_equation_rgb, last_blend_equation_alpha);
     gl::BlendFuncSeparate(last_blend_src_rgb, last_blend_dst_rgb, last_blend_src_alpha, last_blend_dst_alpha);
     if (last_enable_blend) gl::Enable(gl::BLEND); else gl::Disable(gl::BLEND);
@@ -204,21 +204,16 @@ bool ImGui_ImplGlfwGL3_CreateFontsTexture()
     int width, height;
     io.Fonts->GetTexDataAsRGBA32(&pixels, &width, &height);   // Load as RGBA 32-bits (75% of the memory is wasted, but default font is so small) because it is more likely to be compatible with user's existing shaders. If your ImTextureId represent a higher-level concept than just a GL texture id, consider calling GetTexDataAsAlpha8() instead to save on GPU memory.
 
-                                                              // Upload texture to graphics system
-    GLint last_texture;
-    gl::GetIntegerv(gl::TEXTURE_BINDING_2D, &last_texture);
-    gl::GenTextures(1, &g_FontTexture);
-    gl::BindTexture(gl::TEXTURE_2D, g_FontTexture);
-    gl::TexParameteri(gl::TEXTURE_2D, gl::TEXTURE_MIN_FILTER, gl::LINEAR);
-    gl::TexParameteri(gl::TEXTURE_2D, gl::TEXTURE_MAG_FILTER, gl::LINEAR);
+    // Upload texture to graphics system
+    gl::CreateTextures(gl::TEXTURE_2D, 1, &g_FontTexture);
+    gl::TextureStorage2D(g_FontTexture, 1, gl::RGBA8, width, height);
+    gl::TextureParameteri(g_FontTexture, gl::TEXTURE_MIN_FILTER, gl::LINEAR);
+    gl::TextureParameteri(g_FontTexture, gl::TEXTURE_MAG_FILTER, gl::LINEAR);
     gl::PixelStorei(gl::UNPACK_ROW_LENGTH, 0);
-    gl::TexImage2D(gl::TEXTURE_2D, 0, gl::RGBA, width, height, 0, gl::RGBA, gl::UNSIGNED_BYTE, pixels);
+    gl::TextureSubImage2D(g_FontTexture, 0, 0, 0, width, height, gl::RGBA, gl::UNSIGNED_BYTE, pixels);
 
     // Store our identifier
     io.Fonts->TexID = (void *)(intptr_t)g_FontTexture;
-
-    // Restore state
-    gl::BindTexture(gl::TEXTURE_2D, last_texture);
 
     return true;
 }
