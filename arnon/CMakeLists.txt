@@ -6,6 +6,7 @@ target_sources(${PROJECT_NAME}
                PRIVATE
                # Project Specific Files
                ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/inputManager.h
 
                # Scene Management
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.h
