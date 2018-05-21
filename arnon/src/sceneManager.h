@@ -9,7 +9,6 @@
 #include <cstdint>
 #include <vector>
 #include <queue>
-#include <stack>
 
 // Declares what the command represents
 enum class ESCeneCommandType : uint8_t
@@ -19,7 +18,7 @@ enum class ESCeneCommandType : uint8_t
     Pop
 };
 
-class SceneManager
+class SceneManager final
 {
 private:
     // Defines a command and it's data to be executed at a later time
@@ -33,18 +32,20 @@ private:
     };
 
     // The stack of active Scenes
-    std::stack<std::unique_ptr<Scene>, std::vector<std::unique_ptr<Scene>>> m_sceneStack;
+    std::vector<std::unique_ptr<Scene>> m_sceneStack;
     
     // A queue of Commands to be executed after the next update
     std::queue<Command> m_pendingCommands;
 
 public:
-
     // Push a new scene onto the Scene Stack
     void pushScene(std::unique_ptr<Scene> newScene);
 
     // Pop the top scene off the Scene Stack
     void popScene();
+
+    // Update Function
+    void update(const float dt);
 
 };
 

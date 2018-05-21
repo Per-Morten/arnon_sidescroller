@@ -9,3 +9,11 @@ void SceneManager::popScene()
 {
     m_pendingCommands.push({ nullptr, ESCeneCommandType::Pop });
 }
+
+void SceneManager::update(const float dt)
+{
+    for (auto& scene : m_sceneStack)
+    {
+        if (!scene->update(dt)) break;
+    }
+}
