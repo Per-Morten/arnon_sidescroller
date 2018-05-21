@@ -6,6 +6,10 @@ target_sources(${PROJECT_NAME}
                PRIVATE
                # Project Specific Files
                ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.h
+               # ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.cpp
 
                # Rendering
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D.h
