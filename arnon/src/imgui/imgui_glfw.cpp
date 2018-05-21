@@ -65,8 +65,8 @@ void ImGui_ImplGlfwGL3_RenderDrawData(ImDrawData* draw_data)
 {
     // Avoid rendering when minimized, scale coordinates for retina displays (screen coordinates != framebuffer coordinates)
     ImGuiIO& io = ImGui::GetIO();
-    int fb_width = (int)(io.DisplaySize.x * io.DisplayFramebufferScale.x);
-    int fb_height = (int)(io.DisplaySize.y * io.DisplayFramebufferScale.y);
+    auto fb_width = (int)(io.DisplaySize.x * io.DisplayFramebufferScale.x);
+    auto fb_height = (int)(io.DisplaySize.y * io.DisplayFramebufferScale.y);
     if (fb_width == 0 || fb_height == 0)
         return;
     draw_data->ScaleClipRects(io.DisplayFramebufferScale);
@@ -107,10 +107,10 @@ void ImGui_ImplGlfwGL3_RenderDrawData(ImDrawData* draw_data)
     gl::Viewport(0, 0, (GLsizei)fb_width, (GLsizei)fb_height);
     const float ortho_projection[4][4] =
     {
-        { 2.0f / io.DisplaySize.x, 0.0f,                   0.0f, 0.0f },
+    { 2.0f / io.DisplaySize.x, 0.0f,                   0.0f, 0.0f },
     { 0.0f,                  2.0f / -io.DisplaySize.y, 0.0f, 0.0f },
-    { 0.0f,                  0.0f,                  -1.0f, 0.0f },
-    { -1.0f,                  1.0f,                   0.0f, 1.0f },
+    { 0.0f,                  0.0f,                    -1.0f, 0.0f },
+    { -1.0f,                  1.0f,                    0.0f, 1.0f },
     };
     gl::UseProgram(g_ShaderHandle);
     gl::Uniform1i(g_AttribLocationTex, 0);
@@ -221,10 +221,8 @@ bool ImGui_ImplGlfwGL3_CreateFontsTexture()
 bool ImGui_ImplGlfwGL3_CreateDeviceObjects()
 {
     // Backup GL state
-    GLint last_texture, last_array_buffer, last_vertex_array;
+    GLint last_texture;
     gl::GetIntegerv(gl::TEXTURE_BINDING_2D, &last_texture);
-    gl::GetIntegerv(gl::ARRAY_BUFFER_BINDING, &last_array_buffer);
-    gl::GetIntegerv(gl::VERTEX_ARRAY_BINDING, &last_vertex_array);
 
     const GLchar *vertex_shader =
         "#version 150\n"
@@ -269,15 +267,13 @@ bool ImGui_ImplGlfwGL3_CreateDeviceObjects()
     g_AttribLocationUV = gl::GetAttribLocation(g_ShaderHandle, "UV");
     g_AttribLocationColor = gl::GetAttribLocation(g_ShaderHandle, "Color");
 
-    gl::GenBuffers(1, &g_VboHandle);
-    gl::GenBuffers(1, &g_ElementsHandle);
+    gl::CreateBuffers(1, &g_VboHandle);
+    gl::CreateBuffers(1, &g_ElementsHandle);
 
     ImGui_ImplGlfwGL3_CreateFontsTexture();
 
     // Restore modified GL state
     gl::BindTexture(gl::TEXTURE_2D, last_texture);
-    gl::BindBuffer(gl::ARRAY_BUFFER, last_array_buffer);
-    gl::BindVertexArray(last_vertex_array);
 
     return true;
 }
