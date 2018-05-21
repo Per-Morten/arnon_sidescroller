@@ -8,7 +8,7 @@
 #include <memory>
 #include <cstdint>
 #include <vector>
-#include <queue>
+#include <deque>
 
 // Declares what the command represents
 enum class ESCeneCommandType : uint8_t
@@ -32,10 +32,10 @@ private:
     };
 
     // The stack of active Scenes
-    std::vector<std::unique_ptr<Scene>> m_sceneStack;
+    std::deque<std::unique_ptr<Scene>> m_sceneStack;
     
     // A queue of Commands to be executed after the next update
-    std::queue<Command> m_pendingCommands;
+    std::vector<Command> m_pendingCommands;
 
 public:
     // Push a new scene onto the Scene Stack
