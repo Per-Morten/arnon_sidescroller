@@ -15,6 +15,11 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.cpp
 
+               # Event Management
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/slot.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/delegate.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/delegateBind.h
+
                # Specific Scenes
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene_mainMenu.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene_optionsMenu.h
