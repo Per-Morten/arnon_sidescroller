@@ -17,6 +17,7 @@ target_sources(${PROJECT_NAME}
 
                # Event Management
                ${CMAKE_CURRENT_SOURCE_DIR}/src/slot.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/signal.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/delegate.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/delegateBind.h
 

@@ -20,8 +20,8 @@ public:
     Slot() = default;
 
     // Construct slot from a regular or static member function
-    Slot(Signature function) : m_delegate(function) {}
-    
+    explicit Slot(Signature function) : m_delegate(function) {}
+
     // Construct slot from a member function
     template<typename ClassInstance, typename MemberFunctionPtr>
     Slot(ClassInstance* object, MemberFunctionPtr function) : m_delegate(object, function) {}
