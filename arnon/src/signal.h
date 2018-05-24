@@ -3,15 +3,19 @@
 #ifndef SIGNAL_H
 #define SIGNAL_H
 
+#include "slot.h"
+
 #include <vector>
 #include <type_traits>
 
-template<typename SlotType>
+template<typename Signature>
 class Signal
 {
 private:
     // Vector of all slots that subscribe to this signal
-    std::vector<SlotType> m_subscribers;
+    std::vector<Slot<Signature>> m_subscribers;
+
+    // #TODO : Allow disconnection of slots and maybe don't store by copied values IDK
 
 public:
     // Clear all connected slots
@@ -21,7 +25,7 @@ public:
     }
 
     // Connect a new slot to the signal
-    void connect(SlotType newSlotSubscriber)
+    void connect(Slot<Signature> newSlotSubscriber)
     {
         m_subscribers.emplace_back(std::move(newSlotSubscriber));
     }

@@ -5,6 +5,7 @@
 
 #include "window.h"
 #include "sceneManager.h"
+#include "gameSettings.h"
 
 struct ImGuiContext;
 
@@ -17,6 +18,9 @@ struct ImGuiContext;
 class Application final
 {
 private:
+    // The options / settings
+    GameSettings m_settings;
+
     // The window on screen
     Window m_window{ { 1280, 720 }, "Test" };
 
