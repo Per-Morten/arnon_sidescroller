@@ -38,8 +38,14 @@ public:
     void run();
 
 private:
+    // Defined to allow a set of operations to occur before everything will be updated
+    void preUpdate();
+
     // Does the update phase of the main loop
     void update(const float dt);
+    
+    // Defined to allow a set of operations to occur after everything has been updated
+    void postUpdate();
 
     // Does the draw phase of the main loop
     void draw();

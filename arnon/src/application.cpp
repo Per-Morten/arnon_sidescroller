@@ -1,6 +1,7 @@
 #include "application.h"
 #include "clock.h"
 #include "debug/arnlog.h"
+#include "GL/glCallbacks.h"
 
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
@@ -10,6 +11,12 @@
 Application::Application()
 {
     gl::sys::LoadFunctions();
+
+// Use OpenGL Debug callback in debug mode
+#ifndef NDEBUG
+    gl::DebugMessageCallback(glDebugCallback, nullptr);
+    gl::DebugMessageControl(gl::DONT_CARE, gl::DONT_CARE, gl::DONT_CARE, 0, nullptr, true);
+#endif
 
     m_imguiContext = ImGui::CreateContext();
     ImGui_ImplGlfwGL3_Init(m_window.get());
@@ -32,15 +39,20 @@ void Application::run()
     {
         const auto deltaTime = deltaClock.restart().count();
         glfwPollEvents();
+        preUpdate();
         update(deltaTime);
+        postUpdate();
         draw();
     }
 }
 
-void Application::update(const float dt)
+void Application::preUpdate()
 {
     ImGui_ImplGlfwGL3_NewFrame();
+}
 
+void Application::update(const float dt)
+{
     // Stats
     ImGui::Begin("Stats");
     ImGui::Text("FPS: %.2f", 1.f / dt);
@@ -55,6 +67,11 @@ void Application::update(const float dt)
     ImGui::End();
     
     m_sceneManager.update(dt);
+}
+
+void Application::postUpdate()
+{
+
 }
 
 void Application::draw()

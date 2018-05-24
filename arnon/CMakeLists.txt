@@ -6,14 +6,10 @@ target_sources(${PROJECT_NAME}
                PRIVATE
                # Project Specific Files
                ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/clock.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/clock.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/application.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/application.cpp
-
-               # Scene Management
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.h
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.cpp
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.h
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.cpp
 
                # Event Management
                ${CMAKE_CURRENT_SOURCE_DIR}/src/slot.h
@@ -21,6 +17,12 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/delegate.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/delegateBind.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/inputManager.h
+
+               # Scene Management
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.cpp
 
                # Specific Scenes
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene_mainMenu.h
@@ -47,6 +49,8 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/glfwCallbacks.cpp
 
                # OpenGL Wrapping
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCallbacks.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCallbacks.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/framebuffer.h
@@ -88,8 +92,6 @@ find_package(glfw3 3.2 REQUIRED)
 find_package(glm REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(fmt REQUIRED)
-
-# To enable <filesystem> on Linux / GCC
 
 # Link Libraries
 target_link_libraries(${PROJECT_NAME}
