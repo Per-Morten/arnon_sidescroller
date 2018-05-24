@@ -6,12 +6,12 @@ target_sources(${PROJECT_NAME}
                PRIVATE
                # Project Specific Files
                ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/inputManager.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/application.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/application.cpp
 
                # Scene Management
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene.cpp
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneState.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/sceneManager.cpp
 
@@ -20,6 +20,7 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/signal.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/delegate.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/delegateBind.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/inputManager.h
 
                # Specific Scenes
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene_mainMenu.h
