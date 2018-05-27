@@ -41,6 +41,8 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/logger.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/arnlog.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/arnlog.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/autoTimer.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/autoTimer.cpp
 
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
@@ -92,6 +94,11 @@ find_package(glfw3 3.2 REQUIRED)
 find_package(glm REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(fmt REQUIRED)
+
+# Filesystem must be linked explicitly on Unix
+if(UNIX)
+   target_link_libraries(${PROJECT_NAME} stdc++fs)
+endif()
 
 # Link Libraries
 target_link_libraries(${PROJECT_NAME}

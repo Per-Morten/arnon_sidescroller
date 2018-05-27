@@ -37,7 +37,7 @@ class Logger
 {
 private:
     // Format of the logger  [H  [M [S [msg
-    const std::string logFormat = "[{:^7}][{}]  {}\n";
+    const std::string m_logFormat = "[{:^7}][{}]  {}\n";
 
     // Name of the logger
     std::string m_name;
@@ -116,7 +116,7 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
     }
 
     // Produce the final message [ non const since it will be moved from later ]
-    auto finalMessage = fmt::format(logFormat.c_str(), levelString,
+    auto finalMessage = fmt::format(m_logFormat.c_str(), levelString,
                                     std::put_time(std::localtime(&time), "%T"),
                                     printMsg);
 
@@ -134,7 +134,7 @@ void Logger::log(const char* formatString, ELogLevel level, ArgList&&... args)
 
 #elif _WIN32
         HANDLE consoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
-      
+
         switch (level)
         {
         case ELogLevel::Debug:
