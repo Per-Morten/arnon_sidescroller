@@ -16,15 +16,15 @@ private:
     // Start Time
     std::chrono::steady_clock::time_point m_startTime;
 
-    std::string m_fmtString = "Function: {} at Line {} in {} took {} seconds.";
+    std::string m_fmtString;
 
 public:
-    AutoTimer(const char* func, const char* line, const char* file);
+    AutoTimer(const char* func, int line, const char* file);
 
     ~AutoTimer() noexcept;
 };
 
 // Define that should be used with the auto timer
-#define AUTO_TIMER() AutoTimer(__func__, __LINE__, __FILE__);
+#define AUTO_TIMER(timerName) AutoTimer (timerName)(__func__, __LINE__, __FILE__)
 
 #endif // AUTOTIMER_H
