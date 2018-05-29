@@ -59,6 +59,8 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/framebuffer.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/texture.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/texture.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/animationTexture.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/animationTexture.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexArray.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexArray.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertexBuffer.h
