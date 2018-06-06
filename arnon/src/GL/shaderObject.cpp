@@ -1,4 +1,5 @@
 #include "shaderObject.h"
+#include "arnlog/arnlog.h"
 
 #include <iostream>
 #include <sstream>
@@ -94,8 +95,7 @@ bool ShaderObject::validate()
         // Get the log contents and log it
         gl::GetShaderInfoLog(m_name, logLength, nullptr, logString.data());
 
-        // #TODO : Log the string properly once logging is implemented
-        std::cout << logString << '\n';
+        logErr("Shader Compile Error:\n{}", logString);
 
         return false;
     }

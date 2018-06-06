@@ -1,4 +1,5 @@
 #include "window.h"
+#include "arnlog/arnlog.h"
 #include "GL/framebuffer.h"
 #include "GL/shaderObject.h"
 #include "GL/shaderProgram.h"
@@ -89,6 +90,12 @@ int main()
     glfwMakeContextCurrent(window.get());
 
     gl::sys::LoadFunctions();
+
+    // Log Testing
+    logDebug("Hello {} how are your ${:.2f} doing?", "Bjarne", 24.61);
+    logInfo("May I steal your {1} anal holes, {0}?", "John", "fine");
+    logWarn("Hello {:^32} this is centered!", "[CENTERED MESSAGE]");
+    logErr("This is a {errorType} error! Made by {name} of {kingdom}", fmt::arg("name", "Carl"), fmt::arg("kingdom", "Moravia"), fmt::arg("errorType", "nullptr"));
 
     // Construct Shader
     ShaderObject vs(vertexShader, EShaderType::VertexShader);

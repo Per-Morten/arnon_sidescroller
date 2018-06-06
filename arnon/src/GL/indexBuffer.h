@@ -1,15 +1,16 @@
 /// ArnonSideScroller
 
-/*
- * Abstraction of OpenGL indexbuffer
- */
-
 #ifndef INDEXBUFFER_H
 #define INDEXBUFFER_H
 
 #include <cstddef>
 #include <cstdint>
 
+/*!
+ * \brief The IndexBuffer class abstracts an OpenGL IBO
+ * and should be used as an element buffer. Indices are
+ * \note Indices are 16 bit Unsigned Integers
+ */
 class IndexBuffer final
 {
 private:

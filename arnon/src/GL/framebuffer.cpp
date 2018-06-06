@@ -1,4 +1,5 @@
 #include "framebuffer.h"
+#include "arnlog/arnlog.h"
 
 #include "GL/glCore45.h"
 
@@ -102,7 +103,7 @@ void Framebuffer::resetToNewSize(const glm::ivec2& size)
     // Ensure everything is in order
     if (!validateFramebuffer())
     {
-        // #TODO: Log error or throw
+        logWarn("Failed to create a valid framebuffer of size {}x{}", size.x, size.y);
 
         gl::DeleteFramebuffers(1, &m_name);
         gl::DeleteTextures(1, &m_texture);

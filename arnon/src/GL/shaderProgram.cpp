@@ -1,5 +1,6 @@
 #include "shaderProgram.h"
 #include "shaderObject.h"
+#include "arnlog/arnlog.h"
 
 #include <iostream>
 
@@ -45,12 +46,18 @@ ShaderProgram::~ShaderProgram()
     gl::DeleteProgram(m_name);
 }
 
-void ShaderProgram::bind() const {
-    // #TODO : Make log entry if program name i 0, aka nothing to bind
+void ShaderProgram::bind() const 
+{
+    if (!isValid())
+    {
+        logWarn("Attempt to bind empty Shader Program!");
+    }
+
     gl::UseProgram(m_name);
 }
 
-void ShaderProgram::unbind() const {
+void ShaderProgram::unbind() const
+{
     gl::UseProgram(0);
 }
 
@@ -108,8 +115,7 @@ bool ShaderProgram::validate()
 
         gl::GetProgramInfoLog(m_name, logLength, nullptr, logString.data());
 
-        // #TODO : Print with proper logging once we got a logging lib
-        std::cout << logString << '\n';
+        logErr("Program Link Error:\n{}", logString);
 
         return false;
     }

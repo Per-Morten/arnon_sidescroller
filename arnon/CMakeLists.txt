@@ -15,6 +15,11 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_circle.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_circle.cpp
 
+               # Logger
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/logger.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/arnlog.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/arnlog.cpp
+
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
@@ -50,17 +55,16 @@ target_include_directories(${PROJECT_NAME}
 find_package(glfw3 3.2 REQUIRED)
 find_package(glm REQUIRED)
 find_package(OpenGL REQUIRED)
+find_package(fmt REQUIRED)
 
 # To enable <filesystem> on Linux / GCC
-if(UNIX)
-  target_link_libraries(${PROJECT_NAME} stdc++fs)
-endif()
 
 # Link Libraries
 target_link_libraries(${PROJECT_NAME}
                       glfw
                       glm
                       OpenGL::GL
+                      fmt::fmt
                       )
 
 # TODO: Define Install Targets Here
