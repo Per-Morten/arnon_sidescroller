@@ -1,5 +1,6 @@
 #include "window.h"
-#include "arnlog/arnlog.h"
+#include "debug/arnlog.h"
+#include "debug/asserts.h"
 #include "GL/framebuffer.h"
 #include "GL/shaderObject.h"
 #include "GL/shaderProgram.h"
@@ -11,6 +12,10 @@
 #include "glm/gtc/matrix_transform.hpp"
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
+
+#ifndef NDEBUG
+#define ARN_ASSERT_TERMINATE // Only log in debug mode
+#endif
 
 // For testing
 const std::string vertexShader =
@@ -96,6 +101,8 @@ int main()
     logInfo("May I steal your {1} anal holes, {0}?", "John", "fine");
     logWarn("Hello {:^32} this is centered!", "[CENTERED MESSAGE]");
     logErr("This is a {errorType} error! Made by {name} of {kingdom}", fmt::arg("name", "Carl"), fmt::arg("kingdom", "Moravia"), fmt::arg("errorType", "nullptr"));
+
+    ARN_ASSERT(1 + 2 == 4);
 
     // Construct Shader
     ShaderObject vs(vertexShader, EShaderType::VertexShader);

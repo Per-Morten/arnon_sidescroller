@@ -46,5 +46,4 @@ protected:
 
 };
 
-
 #endif // SHAPE2D_H

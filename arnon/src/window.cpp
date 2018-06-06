@@ -1,5 +1,5 @@
 #include "window.h"
-#include "arnlog/arnlog.h"
+#include "debug/asserts.h"
 
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
@@ -17,23 +17,16 @@ Window::Window(const glm::ivec2& size, const char* title, const WindowContextHin
     glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, hints.debugContext);
     glfwWindowHint(GLFW_RESIZABLE, hints.resizeable);
 
+    // We must have a window, otherwise there is something really wrong
     m_window = glfwCreateWindow(size.x, size.y, title, (hints.fullscreen ? glfwGetPrimaryMonitor() : nullptr), nullptr);
-    
-    // #NOTE : Consider throwing on failure
-    if (!m_window)
-    {
-        logErr("Failed to create GLFW Window!");
-    }
+    ARN_ASSERT(m_window);
 
     setContextAsCurrent();
 }
 
 Window::~Window()
 {
-    if (m_window)
-    {
-        glfwDestroyWindow(m_window);
-    }
+    glfwDestroyWindow(m_window);
 }
 
 void Window::resize(const glm::ivec2& size)
@@ -44,35 +37,29 @@ void Window::resize(const glm::ivec2& size)
 
 void Window::hide() const
 {
-    if(m_window) glfwHideWindow(m_window);
+    glfwHideWindow(m_window);
 }
 
 void Window::show() const
 {
-    if (m_window) glfwShowWindow(m_window);
+    glfwShowWindow(m_window);
 }
 
 void Window::setFullscreen(const bool flag)
 {
-    if (m_window)
-    {
-        // Gather monitor information
-        auto* monitor = glfwGetPrimaryMonitor();
-        auto videoMode = glfwGetVideoMode(monitor);
+    // Gather monitor information
+    auto* monitor = glfwGetPrimaryMonitor();
+    auto videoMode = glfwGetVideoMode(monitor);
 
-        // Set based on flag
-        m_size = { videoMode->width, videoMode->height };
-        glfwSetWindowMonitor(m_window, (flag ? glfwGetPrimaryMonitor() : nullptr), 0, 0, videoMode->width,
-                             videoMode->height, videoMode->refreshRate);
-    }
+    // Set based on flag
+    m_size = { videoMode->width, videoMode->height };
+    glfwSetWindowMonitor(m_window, (flag ? glfwGetPrimaryMonitor() : nullptr), 0, 0, videoMode->width,
+                         videoMode->height, videoMode->refreshRate);
 }
 
 void Window::setContextAsCurrent()
 {
-    if (m_window)
-    {
-        glfwMakeContextCurrent(m_window);
-    }
+    glfwMakeContextCurrent(m_window);
 }
 
 const glm::vec2 Window::getSize() const

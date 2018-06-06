@@ -26,7 +26,9 @@ namespace detail
 template<typename... ArgList>
 void log(const char* formatString, ELogLevel level, ArgList&&... args)
 {
+#ifndef NDEBUG
     g_log.log(formatString, level, std::forward<ArgList>(args)...);
+#endif
 }
 }
 

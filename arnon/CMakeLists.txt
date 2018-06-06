@@ -16,9 +16,10 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/shape2D_circle.cpp
 
                # Logger
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/logger.h
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/arnlog.h
-               ${CMAKE_CURRENT_SOURCE_DIR}/src/arnlog/arnlog.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/asserts.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/logger.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/arnlog.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/debug/arnlog.cpp
 
                # GLFW Wrapping
                ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h

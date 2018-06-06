@@ -4,9 +4,10 @@
 #include "glCore45.h"
 
 void Shape2D::draw(const ShaderProgram& shader) {
+
     if (m_vao)
     {
-        shader.bind();
+        shader.bind(); // #TODO : Don't do this in the shape, but in a renderer of some sort
         m_vao->bind();
         gl::DrawElements(gl::TRIANGLES, m_ibo->getCount(), gl::UNSIGNED_SHORT, nullptr);
     }
