@@ -8,6 +8,10 @@ target_sources(${PROJECT_NAME}
                # Project Specific Files
                ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
 
+               # GLFW Wrapping
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/window.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/window.cpp
+
                # OpenGL 4.5 Core Profile
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.cpp
