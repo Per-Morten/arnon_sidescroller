@@ -58,14 +58,13 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {
-    g_inputManager.moveCursor(glm::dvec2{ xpos, ypos });
-    logDebug("Cursor at: X[{}] Y[{}]", xpos, ypos);
+    g_inputManager.moveCursor(glm::vec2{ static_cast<float>(xpos), static_cast<float>(ypos) });
 }
 
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
-    g_inputManager.scrollMouse({ xoffset, yoffset });
-    logDebug("Scrolldelta: X[{}] Y[{}]", xoffset, yoffset);
+    g_inputManager.scrollMouse(static_cast<float>(yoffset));
+    logDebug("Scrolldelta on Y-Axis: {}", yoffset);
 
     // ImGui Interaction
     ImGuiIO& io = ImGui::GetIO();
