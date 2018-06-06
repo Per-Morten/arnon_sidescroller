@@ -1,4 +1,5 @@
 #include "window.h"
+#include "glfwCallbacks.h"
 #include "debug/asserts.h"
 
 #include "GL/glCore45.h"
@@ -22,6 +23,12 @@ Window::Window(const glm::ivec2& size, const char* title, const WindowContextHin
     ARN_ASSERT(m_window);
 
     setContextAsCurrent();
+
+    // Set the window to register for GLFW Callbacks that work with the default InputManager
+    glfwSetCursorPosCallback(m_window, cursor_position_callback);
+    glfwSetKeyCallback(m_window, key_callback);
+    glfwSetScrollCallback(m_window, scroll_callback);
+    glfwSetMouseButtonCallback(m_window, mouse_button_callback);
 }
 
 Window::~Window()

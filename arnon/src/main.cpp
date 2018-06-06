@@ -1,4 +1,10 @@
 #include "window.h"
+#include "scene.h"
+#include "scene_mainMenu.h"
+#include "scene_optionsMenu.h"
+#include "sceneManager.h"
+#include "inputManager.h"
+#include "glfwCallbacks.h"
 #include "debug/arnlog.h"
 #include "debug/asserts.h"
 #include "GL/framebuffer.h"
@@ -8,6 +14,8 @@
 
 #include <string>
 
+#include "imgui/imgui.h"
+#include "imgui/imgui_glfw.h"
 #include "glm/gtc/type_ptr.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "GL/glCore45.h"
@@ -53,25 +61,43 @@ void main()
 }
 )";
 
+// A global Input Manager Instance
+InputManager g_inputManager;
 
 int main()
 {
     glfwInit();
 
     auto window = Window({ 1280, 720 }, "Test");
-    glfwMakeContextCurrent(window.get());
 
     gl::sys::LoadFunctions();
+
+    ImGui::CreateContext();
+    ImGui_ImplGlfwGL3_Init(window.get());
+
+    SceneManager sm;
+
+    sm.pushScene(std::make_unique<SMainMenu>(sm));
+    sm.pushScene(std::make_unique<SOptionsMenu>(sm));
 
     while (!glfwWindowShouldClose(window.get()))
     {
         glfwPollEvents();
+        ImGui_ImplGlfwGL3_NewFrame();
+
+        sm.update(1.f / 144.f);
+
+        ImGui::Text("Hello World");
+
         gl::Clear(gl::COLOR_BUFFER_BIT);
 
-
-
+        ImGui::Render();
+        ImGui_ImplGlfwGL3_RenderDrawData(ImGui::GetDrawData());
         glfwSwapBuffers(window.get());
     }
+
+    ImGui_ImplGlfwGL3_Shutdown();
+    ImGui::DestroyContext();
 
     glfwTerminate();
     return 0;
