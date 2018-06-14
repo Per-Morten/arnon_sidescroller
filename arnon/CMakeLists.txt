@@ -11,6 +11,14 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/application.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/application.cpp
 
+               # Game Logic
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/gameObject.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/gameObject.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/component.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/component.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/world.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/world.cpp
+
                # Event Management
                ${CMAKE_CURRENT_SOURCE_DIR}/src/slot.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/signal.h
