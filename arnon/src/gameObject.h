@@ -6,14 +6,30 @@
 #include "component.h"
 
 #include <vector>
+#include <memory>
+#include <type_traits>
 
 class GameObject
 {
 private:
     // Vector of components
-    std::vector<Component> m_components;
+    std::vector<std::unique_ptr<Component>> m_components;
+
+    // Game Object ID
+    uint16_t m_ID = 0;
 
 public:
+    GameObject(unsigned ID) : m_ID(ID) {}
+
+    virtual ~GameObject() = default;
+
+    // Add a component to the game object
+    template<typename T, std::enable_if_t<std::is_base_of_v<Component, T>>>
+    Component& addComponent()
+    {
+        m_components.emplace_back(std::make_unique<T>(*this));
+        return *m_components.back();
+    }
 
 };
 

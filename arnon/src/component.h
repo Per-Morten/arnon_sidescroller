@@ -8,7 +8,7 @@ class GameObject;
 class Component
 {
 private:
-    GameObject* m_parent;
+    GameObject* m_parent = nullptr;
 
 public:
     Component(GameObject& parent) : m_parent(&parent) {}
