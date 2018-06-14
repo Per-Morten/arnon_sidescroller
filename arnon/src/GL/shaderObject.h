@@ -9,6 +9,7 @@
 
 #include <cstdint>
 #include <fstream>
+#include <filesystem>
 #include <string>
 
 // Defines the type of a shader
@@ -30,6 +31,8 @@ public:
     ShaderObject(const std::string& shaderSourceCode, EShaderType type);
 
     ShaderObject(std::ifstream& shaderSourceFile, EShaderType type);
+
+    ShaderObject(const std::filesystem::path& filepath, EShaderType type);
 
     ShaderObject(ShaderObject&& other)noexcept;
 

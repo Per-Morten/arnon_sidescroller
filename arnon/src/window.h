@@ -23,7 +23,11 @@ struct WindowContextHints
     bool resizeable     = true;
     bool fullscreen     = false;
     bool alwaysOnTop    = false; // Always be on top of other windows
-    bool debugContext   = false; // Enable OpenGL debug context or not
+#ifndef NDEBUG
+    bool debugContext   = true;  // Enable OpenGL debug context or not (DEFAULTS TO TRUE IN DEBUG MODE)
+#else
+    bool debugContext   = false; // Enable OpenGL debug context or not (DEFAULTS TO FALSE IN RELEASE MODE)
+#endif
 };
 
 class Window

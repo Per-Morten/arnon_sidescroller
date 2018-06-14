@@ -69,7 +69,7 @@ void ShaderProgram::create(const ShaderObject& vertexShader, const ShaderObject&
 void ShaderProgram::createFromVertexOnly(const ShaderObject& vertexShader)
 {
     // When only supplying a vertex shader, then create a default fragment shader to use
-    static ShaderObject defaultFragmentShader(default_fragment_source, EShaderType::FragmentShader);
+    static ShaderObject defaultFragmentShader(std::string(default_fragment_source), EShaderType::FragmentShader);
     create(vertexShader, defaultFragmentShader);
 }
 

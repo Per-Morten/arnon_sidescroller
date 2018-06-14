@@ -21,6 +21,12 @@ ShaderObject::ShaderObject(ShaderObject&& other) noexcept : m_name(other.m_name)
     other.m_name = 0;
 }
 
+ShaderObject::ShaderObject(const std::filesystem::path& filepath, EShaderType type)
+{
+    std::ifstream file(filepath);
+    loadFromFile(file, type);
+}
+
 ShaderObject& ShaderObject::operator=(ShaderObject&& other) noexcept
 {
     if (&other == this) return *this;
@@ -47,7 +53,7 @@ void ShaderObject::loadFromFile(std::ifstream& file, EShaderType type)
     fileReader << file.rdbuf();
 
     // Construct string from stream and compile it
-    std::string fileContents{fileReader.str()};
+    std::string fileContents{ fileReader.str() };
     compile(fileContents.data(), type);
 }
 
@@ -61,7 +67,8 @@ bool ShaderObject::isValid() const
     return m_name != 0;
 }
 
-bool ShaderObject::compile(const char* shaderSource, EShaderType type) {
+bool ShaderObject::compile(const char* shaderSource, EShaderType type)
+{
     // Clean up existing if it's re-assigning
     if (isValid()) gl::DeleteShader(m_name);
 
