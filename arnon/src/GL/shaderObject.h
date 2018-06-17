@@ -1,3 +1,6 @@
+/// ArnonSidescroller 2018
+/// Jun 17th 2018 - Add tesselation shaders
+
 /*
  * A shader object is the object file resulting
  * from compiling a shader. It can be attached
@@ -12,11 +15,13 @@
 #include <filesystem>
 #include <string>
 
-// Defines the type of a shader
+// Defines the type of a shader, all enum values taken from glCore45.h
 enum class EShaderType : uint16_t
 {
-    VertexShader   = 0x8B31, // Values taken from glCore45.h
-    FragmentShader = 0x8B30  // Values taken from glCore45.h
+    FragmentShader = 0x8B30,
+    VertexShader   = 0x8B31,
+    TessEvalShader = 0x8E87,
+    TessCtrlShader = 0x8E88
 };
 
 class ShaderObject final
