@@ -87,6 +87,14 @@ void Texture::loadFromFile(const std::filesystem::path& filepath)
     loadFromFile(filepath.string());
 }
 
+glm::ivec2 Texture::getSize() const
+{
+    glm::ivec2 outSize;
+    gl::GetTextureLevelParameteriv(m_name, 0, gl::TEXTURE_WIDTH, &outSize.x);
+    gl::GetTextureLevelParameteriv(m_name, 0, gl::TEXTURE_HEIGHT, &outSize.y);
+    return outSize;
+}
+
 bool Texture::isValid() const
 {
     return m_name != 0;
