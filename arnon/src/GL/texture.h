@@ -45,6 +45,9 @@ public:
     // Load an image file into this texture
     void loadFromFile(const std::string& filepath);
 
+    // Load image file into this texture
+    void loadFromFile(const std::filesystem::path& filepath);
+
 private:
     // Check if the texture is a valid OpenGL object
     bool isValid() const;

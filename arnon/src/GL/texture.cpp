@@ -21,7 +21,7 @@ Texture::Texture(Texture&& other) noexcept : m_name(other.m_name)
 Texture::Texture(const std::filesystem::path& filepath)
 {
     ARN_ASSERT(std::filesystem::exists(filepath));
-    ARN_ASSERT(validateFileExtension(filepath));    
+    ARN_ASSERT(validateFileExtension(filepath));
     loadFromFile(filepath.string());
 }
 
@@ -79,6 +79,12 @@ void Texture::loadFromFile(const std::string& filepath)
     // Initialize Image Data and Clean up
     gl::TextureSubImage2D(m_name, 0, 0, 0, dimensions.x, dimensions.y, gl::RGBA, gl::UNSIGNED_BYTE, pixels);
     stbi_image_free(pixels);
+}
+
+void Texture::loadFromFile(const std::filesystem::path& filepath)
+{
+    ARN_ASSERT(std::filesystem::exists(filepath));
+    loadFromFile(filepath.string());
 }
 
 bool Texture::isValid() const

@@ -43,8 +43,6 @@ public:
 
     ShaderObject& operator=(ShaderObject&& other) noexcept;
 
-    // #TODO : Copy Ctors if they make sense / GL has a way to copy shader objects
-
     ~ShaderObject();
 
     // ShaderProgram is a sensible friend since it needs to acces m_name to attach

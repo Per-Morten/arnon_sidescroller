@@ -34,6 +34,7 @@ target_sources(${PROJECT_NAME}
 
                # Specific Scenes
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene_mainMenu.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/scene_mainMenu.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/scene_optionsMenu.h
 
                # Rendering

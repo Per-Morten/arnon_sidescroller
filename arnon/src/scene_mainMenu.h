@@ -16,7 +16,7 @@ private:
 public:
     using Scene::Scene;
 
-    virtual bool update(const float dt) override
+    bool update(const float dt) override
     {
         m_world.update(dt);
         m_world.makeUI();
