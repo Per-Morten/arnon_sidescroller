@@ -11,10 +11,12 @@ class SOptionsMenu : public Scene
 public:
     using Scene::Scene;
 
-    virtual bool update(const float dt) override
-    {        
+    bool update(const float dt) override
+    {
         return false;
     }
+
+    std::string getName() const override { return "Options Menu"; }
 };
 
 #endif // SCENE_OPTIONSMENU_H

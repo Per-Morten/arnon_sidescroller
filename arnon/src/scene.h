@@ -26,6 +26,9 @@ public:
     // Update the Scene. Returns true if Scenes below may update while this one is active
     virtual bool update(const float dt) = 0;
 
+    // Way to alllow sub-classed scenes to express a name without taking storage space
+    virtual std::string getName() const { return "Default Scene"; }
+
 };
 
 #endif // SCENE_H
