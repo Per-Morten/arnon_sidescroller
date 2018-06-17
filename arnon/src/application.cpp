@@ -2,6 +2,7 @@
 #include "clock.h"
 #include "debug/arnlog.h"
 #include "GL/glCallbacks.h"
+#include "scene_mainMenu.h"
 
 #include "GL/glCore45.h"
 #include "GLFW/glfw3.h"
@@ -21,6 +22,8 @@ Application::Application()
     m_imguiContext = ImGui::CreateContext();
     ImGui_ImplGlfwGL3_Init(m_window.get());
 
+    // Add the main menu
+    m_sceneManager.pushScene(std::make_unique<SMainMenu>(m_sceneManager));
 }
 
 Application::~Application()

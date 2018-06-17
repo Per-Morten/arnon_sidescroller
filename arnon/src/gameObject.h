@@ -19,19 +19,27 @@ private:
     uint16_t m_ID = 0;
 
 public:
-    GameObject(unsigned ID) : m_ID(ID) {}
+    GameObject(unsigned ID);
 
     virtual ~GameObject() = default;
 
+    // Update all components
+    void update(float dt);
+
+    // Make UI
+    void makeUI();
+
     // Add a component to the game object
     template<typename T, std::enable_if_t<std::is_base_of_v<Component, T>>>
-    Component& addComponent()
-    {
-        m_components.emplace_back(std::make_unique<T>(*this));
-        return *m_components.back();
-    }
+    Component& addComponent();
 
 };
 
+template<typename T, std::enable_if_t<std::is_base_of_v<Component, T>>>
+Component& GameObject::addComponent()
+{
+    m_components.emplace_back(std::make_unique<T>(*this));
+    return *m_components.back();
+}
 
 #endif // GAMEOBJECT_H

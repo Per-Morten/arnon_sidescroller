@@ -9,7 +9,7 @@
 #include <memory>
 #include <type_traits>
 
-class World
+class World final
 {
 private:
     // Vector of all entities in the world
@@ -19,14 +19,22 @@ private:
     uint16_t m_nextID = 0;
     
 public:
+    World() = default;
 
-    template<typename T, std::enable_if_t<std::is_base_of_v<GameObject, T>>>
-    void spawn()
-    {
-        m_entities.emplace_back(std::make_unique<T>(m_nextID++));
-    }
+    // Update the world
+    void update(float dt);
+
+    void makeUI();
+
+    template<typename T>
+    void spawn();
 
 };
 
+template<typename T>
+void World::spawn()
+{
+    m_entities.emplace_back(std::make_unique<T>(m_nextID++));
+}
 
 #endif // WORLD_H
