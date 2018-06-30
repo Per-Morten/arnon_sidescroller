@@ -33,7 +33,7 @@ private:
 
     // The stack of active Scenes
     std::deque<std::unique_ptr<Scene>> m_sceneStack;
-    
+
     // A queue of Commands to be executed after the next update
     std::vector<Command> m_pendingCommands;
 
@@ -46,6 +46,9 @@ public:
 
     // Update Function
     void update(const float dt);
+
+    // Make scenemanager UI
+    void makeUI();
 
 };
 

@@ -26,15 +26,16 @@ class Shape2D
 private:
     // Shape VertexBuffer
     std::unique_ptr<VertexBuffer> m_vbo = nullptr;
-    
+
     // Shape VertexArray
     std::unique_ptr<VertexArray> m_vao = nullptr;
-    
+
     // Shape IndexBuffer
     std::unique_ptr<IndexBuffer> m_ibo = nullptr;
 
 public:
     Shape2D() = default;
+
     virtual ~Shape2D() noexcept = default;
 
     // Should be changed so that a renderer takes a Shape2D and draws it instead

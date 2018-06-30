@@ -11,6 +11,8 @@
 #include <string>
 #include <filesystem>
 
+#include "glm/vec2.hpp"
+
 class Texture final
 {
 private:
@@ -47,6 +49,9 @@ public:
 
     // Load image file into this texture
     void loadFromFile(const std::filesystem::path& filepath);
+
+    // Get the size of the texture
+    glm::ivec2 getSize() const;
 
 private:
     // Check if the texture is a valid OpenGL object

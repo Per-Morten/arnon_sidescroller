@@ -22,6 +22,8 @@ public:
         m_world.makeUI();
         return false;
     }
+
+   std::string getName() const override;
 };
 
 #endif // SCENE_MAINMENU_H

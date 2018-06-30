@@ -60,12 +60,15 @@ target_sources(${PROJECT_NAME}
                ${CMAKE_CURRENT_SOURCE_DIR}/src/glfwCallbacks.cpp
 
                # OpenGL Wrapping
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/vertextypes.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCallbacks.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCallbacks.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/glCore45.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/framebuffer.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/framebuffer.cpp
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/sprite.h
+               ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/sprite.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/texture.h
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/texture.cpp
                ${CMAKE_CURRENT_SOURCE_DIR}/src/GL/animationTexture.h

@@ -68,7 +68,8 @@ void Application::update(const float dt)
         glfwSwapInterval(m_settings.VsyncEnabled);
     }
     ImGui::End();
-    
+
+    m_sceneManager.makeUI();
     m_sceneManager.update(dt);
 }
 
